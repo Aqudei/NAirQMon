@@ -12,8 +12,12 @@ Public Class MainForm
                         loginForm.ShowDialog(arg)
                     End Sub, Me)
 
-        WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
-        WebBrowser1.Refresh()
+        BeginInvoke(Sub(arg As Form)
+                        WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
+                        WebBrowser1.Refresh()
+                    End Sub, Me)
+
+
     End Sub
 
     Private Sub ImportDataLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ImportDataLinkLabel.LinkClicked
