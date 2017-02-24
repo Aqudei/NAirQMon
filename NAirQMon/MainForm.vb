@@ -6,7 +6,7 @@
     Sub ShowLogin()
         Dim loginForm = New LoginForm
 
-        BeginInvoke(Sub(arg)
+        BeginInvoke(Sub(arg As Form)
                         loginForm.ShowDialog(arg)
                     End Sub, Me)
     End Sub
@@ -17,7 +17,8 @@
             If ofd.ShowDialog() = DialogResult.OK Then
                 If ofd.FileNames.Length > 0 Then
                     'Open File Here
-
+                    Dim sensorDatas = SensorDataItem.ReadFile(ofd.FileNames(0))
+                    DataGridView1.DataSource = sensorDatas
                 End If
             End If
         End Using
