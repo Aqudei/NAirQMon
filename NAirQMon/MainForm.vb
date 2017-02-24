@@ -12,6 +12,9 @@ Public Class MainForm
     End Class
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Me.SendToBack()
+
         ShowLogin()
 
         Init()
