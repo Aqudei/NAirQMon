@@ -18,23 +18,26 @@ Public Class MainForm
         ShowLogin()
 
         Init()
-
-        LoadSensorData()
     End Sub
 
     Private Sub Init()
 
-        BeginInvoke(Sub(arg As Form)
-                        WebBrowser1.ScriptErrorsSuppressed = True
-                        WebBrowser1.ObjectForScripting = New ScriptCallable
-                        WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
-                        WebBrowser1.Refresh()
+        BeginInvoke(
+            Sub(arg As Form)
 
-                        LoadSensorData()
-                    End Sub, Me)
+                'Start loading map image
+                WebBrowser1.ScriptErrorsSuppressed = True
+                WebBrowser1.ObjectForScripting = New ScriptCallable
+                WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
+                WebBrowser1.Refresh()
+
+                LoadSensorData()
+            End Sub, Me)
     End Sub
 
-    Public Sub MarkerClicked(sensorName As Stream)
+    'This will be called by the javascript providing the sensorname
+    ' of the clicked marker
+    Public Sub MarkerClicked(sensorName As String)
         MsgBox("")
     End Sub
 
