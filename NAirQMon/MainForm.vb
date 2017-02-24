@@ -1,8 +1,22 @@
 ﻿Imports System.IO
 
+
 Public Class MainForm
+
+    <System.Runtime.InteropServices.ComVisible(True)>
+    Public Class ScriptCallable
+        Public Sub MarkerClicked(sensorName As String)
+            Debug.WriteLine(sensorName)
+        End Sub
+
+    End Class
+
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowLogin()
+    End Sub
+
+    Public Sub MarkerClicked(sensorName As Stream)
+        MsgBox("")
     End Sub
 
     Sub ShowLogin()
@@ -14,6 +28,7 @@ Public Class MainForm
 
         BeginInvoke(Sub(arg As Form)
                         WebBrowser1.ScriptErrorsSuppressed = True
+                        WebBrowser1.ObjectForScripting = New ScriptCallable
                         WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
                         WebBrowser1.Refresh()
                     End Sub, Me)

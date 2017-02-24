@@ -27,6 +27,9 @@
     <script type="text/javascript">
         var map;
         function initialize() {
+
+            
+
             //CADM GEO-INFO
             var CDAM_Latlng = new google.maps.LatLng(12.4972806, 124.6368151);
             var CDAM_mapOptions = {
@@ -49,9 +52,14 @@
                 title: 'Catarman'
                 //icon: iconHome
             });
+
+            google.maps.event.addListener(CDAM_marker, 'click', function () {
+                window.external.MarkerClicked("Catarman");
+            });
         }
         // apply domListener :
         //google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSk8jDGYlf4ftufnFCKvXWwXRrDo8kc5c&callback=initialize"></script>
