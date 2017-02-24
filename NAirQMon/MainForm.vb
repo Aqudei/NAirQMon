@@ -10,4 +10,16 @@
                         loginForm.ShowDialog(arg)
                     End Sub, Me)
     End Sub
+
+    Private Sub ImportDataLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ImportDataLinkLabel.LinkClicked
+        Using ofd As New OpenFileDialog
+            ofd.Multiselect = True
+            If ofd.ShowDialog() = DialogResult.OK Then
+                If ofd.FileNames.Length > 0 Then
+                    'Open File Here
+
+                End If
+            End If
+        End Using
+    End Sub
 End Class
