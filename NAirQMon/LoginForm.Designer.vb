@@ -83,6 +83,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.UsernameTextBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "LoginForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "LoginForm"
         Me.ResumeLayout(False)
         Me.PerformLayout()

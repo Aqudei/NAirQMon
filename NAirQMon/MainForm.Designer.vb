@@ -26,16 +26,16 @@ Partial Class MainForm
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ImportDataLinkLabel = New System.Windows.Forms.LinkLabel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -83,6 +83,16 @@ Partial Class MainForm
         Me.Panel1.Size = New System.Drawing.Size(770, 529)
         Me.Panel1.TabIndex = 2
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.DataGridView1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(5, 18)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Padding = New System.Windows.Forms.Padding(10)
+        Me.Panel2.Size = New System.Drawing.Size(760, 506)
+        Me.Panel2.TabIndex = 2
+        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -106,16 +116,6 @@ Partial Class MainForm
         Me.ImportDataLinkLabel.TabStop = True
         Me.ImportDataLinkLabel.Text = "Import Data"
         Me.ImportDataLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.DataGridView1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(5, 18)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Padding = New System.Windows.Forms.Padding(10)
-        Me.Panel2.Size = New System.Drawing.Size(760, 506)
-        Me.Panel2.TabIndex = 2
         '
         'TabPage3
         '
@@ -150,8 +150,8 @@ Partial Class MainForm
         Me.TabPage2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.ResumeLayout(False)
 

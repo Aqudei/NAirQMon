@@ -17,7 +17,6 @@ Public Class MainForm
                         WebBrowser1.Refresh()
                     End Sub, Me)
 
-
     End Sub
 
     Private Sub ImportDataLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ImportDataLinkLabel.LinkClicked
@@ -26,8 +25,15 @@ Public Class MainForm
             If ofd.ShowDialog() = DialogResult.OK Then
                 If ofd.FileNames.Length > 0 Then
                     'Open File Here
-                    Dim sensorDatas = SensorDataReader.ReadFile(ofd.FileNames(0))
-                    DataGridView1.DataSource = sensorDatas
+                    Dim sensorDatas = SensorDataReader.ReadFileReturnSensorDataList(ofd.FileNames(0))
+
+                    Using importForm As New ImportSensorDataForm
+                        importForm.TempSenseDataDataGridView.DataSource = sensorDatas
+                        If importForm.ShowDialog() = DialogResult.OK Then
+                            'Do import here
+                        End If
+                    End Using
+
                 End If
             End If
         End Using

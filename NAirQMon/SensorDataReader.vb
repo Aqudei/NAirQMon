@@ -1,8 +1,9 @@
 ﻿Imports System.IO
+Imports System.Runtime.Serialization
 
 Public Class SensorDataReader
 
-    Public Shared Function ReadFile(filename As String) As DataTable
+    Public Shared Function ReadFileReturnDataTable(filename As String) As DataTable
         Dim lines = IO.File.ReadAllLines(filename)
         Dim dt = New DataTable
 
@@ -22,6 +23,38 @@ Public Class SensorDataReader
         Next
 
         Return dt
+    End Function
+
+    Public Shared Function ReadFileReturnSensorDataList(filename As String) As List(Of SensorDataItem)
+        Dim lines = IO.File.ReadAllLines(filename)
+        Dim list = New List(Of SensorDataItem)
+        Dim dtf = New DateTimeFormat("YYYY-MM-dd HH:mm:ss")
+        'Loop through all the lines in file
+        For index = 0 To (lines.Length - 1)
+            Dim theLine = lines.ElementAt(index)
+            Dim csvs = theLine.Split(",".ToCharArray)
+
+            'If its the first line, then it is a header, skip
+            If index = 0 Then Continue For
+
+            'Set first column to sensor name
+            Dim newItem = New SensorDataItem
+            With newItem
+                .SensorName = Path.GetFileNameWithoutExtension(filename)
+                .TimeRead = DateTime.Parse(csvs(1), dtf.FormatProvider)
+                .CarbonMonoxideLevel = Double.Parse(csvs(2))
+                .WarningLevel = Double.Parse(csvs(3))
+                If csvs.Length > 4 Then
+                    .SerialNumber = csvs(4)
+                    .SensorLifeExpiry = csvs(5)
+                    .OverrangeExposure = csvs(6)
+                End If
+            End With
+
+            list.Add(newItem)
+        Next
+
+        Return list
     End Function
 
     Private Shared Sub BuildHeader(ByRef dt As DataTable, csvs As String())
