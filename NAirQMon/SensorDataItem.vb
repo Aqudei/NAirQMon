@@ -1,19 +1,31 @@
-﻿Public Class SensorDataItem
-    Public Property CarbonMonoxideLevel As Double
-    Public Property SensorName As String
-    Public Property TimeRead As Date
+Imports System
+Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
+Imports System.ComponentModel.DataAnnotations.Schema
+Imports System.Data.Entity.Spatial
 
-    Private _warningLevel As Double
-    Public Property WarningLevel() As Double
-        Get
-            Return _warningLevel
-        End Get
-        Set(ByVal value As Double)
-            _warningLevel = value
-        End Set
-    End Property
+<Table("AirQualityTable")>
+Partial Public Class SensorDataItem
+    Public Property TimeRead As Date?
 
-    Public Property OverrangeExposure As String
+    Public Property CarbonMonoxideLevel As Single?
+
+    Public Property WarningLevel As Single?
+
+    <StringLength(10)>
     Public Property SerialNumber As String
-    Public Property SensorLifeExpiry As String
+
+    <Column(TypeName:="date")>
+    Public Property SensorLifeExpiry As Date?
+
+    <StringLength(10)>
+    Public Property OverrangeExposure As String
+
+    <StringLength(32)>
+    Public Property SensorName As String
+
+    <Key>
+    Public Property SensorDataItemId As Integer
+
+    Public Overridable Property LocationTable As Location
 End Class

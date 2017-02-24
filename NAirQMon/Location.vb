@@ -5,9 +5,9 @@ Imports System.ComponentModel.DataAnnotations.Schema
 Imports System.Data.Entity.Spatial
 
 <Table("LocationTable")>
-Partial Public Class LocationTable
+Partial Public Class Location
     Public Sub New()
-        AirQualityTables = New HashSet(Of AirQualityTable)()
+        SensorDataItems = New HashSet(Of SensorDataItem)()
     End Sub
 
     <Column(TypeName:="text")>
@@ -21,5 +21,5 @@ Partial Public Class LocationTable
     <StringLength(32)>
     Public Property SensorName As String
 
-    Public Overridable Property AirQualityTables As ICollection(Of AirQualityTable)
+    Public Overridable Property SensorDataItems As ICollection(Of SensorDataItem)
 End Class

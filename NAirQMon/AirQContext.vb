@@ -10,27 +10,35 @@ Partial Public Class AirQContext
         MyBase.New("name=AirQContext")
     End Sub
 
-    Public Overridable Property AirQualityTables As DbSet(Of AirQualityTable)
-    Public Overridable Property LocationTables As DbSet(Of LocationTable)
+    Public Overridable Property SensorDataItems As DbSet(Of SensorDataItem)
+    Public Overridable Property Locations As DbSet(Of Location)
 
     Protected Overrides Sub OnModelCreating(ByVal modelBuilder As DbModelBuilder)
-        modelBuilder.Entity(Of AirQualityTable)() _
+
+        modelBuilder.Entity(Of SensorDataItem)().ToTable("AirQualityTable") _
             .Property(Function(e) e.SerialNumber) _
             .IsFixedLength()
 
-        modelBuilder.Entity(Of AirQualityTable)() _
+        modelBuilder.Entity(Of SensorDataItem)() _
+            .Property(Function(e) e.SensorDataItemId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
+
+        modelBuilder.Entity(Of SensorDataItem)() _
             .Property(Function(e) e.OverrangeExposure) _
             .IsFixedLength()
 
-        modelBuilder.Entity(Of AirQualityTable)() _
+        modelBuilder.Entity(Of SensorDataItem)() _
             .Property(Function(e) e.SensorName) _
             .IsFixedLength()
 
-        modelBuilder.Entity(Of LocationTable)() _
+        'modelBuilder.Entity(Of SensorDataItem)().HasOptional(Function(e) e.SensorName)
+
+        modelBuilder.Entity(Of Location)().ToTable("LocationTable") _
             .Property(Function(e) e.LocationLabel) _
             .IsUnicode(False)
 
-        modelBuilder.Entity(Of LocationTable)() _
+        modelBuilder.Entity(Of Location)().HasMany(Function(e) e.SensorDataItems).WithOptional()
+
+        modelBuilder.Entity(Of Location)() _
             .Property(Function(e) e.SensorName) _
             .IsFixedLength()
     End Sub

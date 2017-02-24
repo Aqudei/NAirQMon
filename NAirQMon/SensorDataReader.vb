@@ -42,11 +42,12 @@ Public Class SensorDataReader
             With newItem
                 .SensorName = Path.GetFileNameWithoutExtension(filename)
                 .TimeRead = DateTime.Parse(csvs(1), dtf.FormatProvider)
-                .CarbonMonoxideLevel = Double.Parse(csvs(2))
-                .WarningLevel = Double.Parse(csvs(3))
+                .CarbonMonoxideLevel = Single.Parse(csvs(2))
+                .WarningLevel = Single.Parse(csvs(3))
                 If csvs.Length > 4 Then
                     .SerialNumber = csvs(4)
-                    .SensorLifeExpiry = csvs(5)
+                    Dim tmpDate = csvs(5).Split("/".ToCharArray)
+                    .SensorLifeExpiry = New Date(Integer.Parse(tmpDate.ElementAt(2)), Integer.Parse(tmpDate.ElementAt(1)), Integer.Parse(tmpDate.ElementAt(0)))
                     .OverrangeExposure = csvs(6)
                 End If
             End With

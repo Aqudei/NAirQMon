@@ -22,9 +22,9 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>NAirQMon.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,9 +34,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>NAirQMon.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -45,7 +45,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>On</OptionStrict>
+    <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
@@ -88,14 +88,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirQContext.vb" />
-    <Compile Include="AirQualityTable.vb" />
+    <Compile Include="Migrations\201702240759587_initial.Designer.vb">
+      <DependentUpon>201702240759587_initial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702240759587_initial.vb" />
+    <Compile Include="Migrations\201702240814496_fk added.Designer.vb">
+      <DependentUpon>201702240814496_fk added.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702240814496_fk added.vb" />
+    <Compile Include="Migrations\201702240835443_constrainst.Designer.vb">
+      <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702240835443_constrainst.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="SensorDataItem.vb" />
     <Compile Include="ImportSensorDataForm.Designer.vb">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
     </Compile>
     <Compile Include="ImportSensorDataForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LocationTable.vb" />
+    <Compile Include="Location.vb" />
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -124,7 +137,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SensorDataItem.vb" />
     <Compile Include="SensorDataReader.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +148,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702240759587_initial.resx">
+      <DependentUpon>201702240759587_initial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702240814496_fk added.resx">
+      <DependentUpon>201702240814496_fk added.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702240835443_constrainst.resx">
+      <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

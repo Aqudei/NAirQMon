@@ -28,8 +28,6 @@
         var map;
         function initialize() {
 
-            
-
             //CADM GEO-INFO
             var CDAM_Latlng = new google.maps.LatLng(12.4972806, 124.6368151);
             var CDAM_mapOptions = {
@@ -40,12 +38,15 @@
             // the map :
             var map = new google.maps.Map(document.getElementById('map-canvas'), CDAM_mapOptions);
             google.maps.event.trigger(map, 'resize');
+
             //markers icon :
             var iconHome = "[marker]";
-            var otherpart = "[marker]";
+            
 
             //set markers :
-            var CDAM_marker = new google.maps.Marker({
+//=====================================================================================
+//          Duplicate this code block for each Marker that you want to put in the MAP
+            var Catarman = new google.maps.Marker({
                 animation: google.maps.Animation.BOUNCE,
                 position: CDAM_Latlng,
                 map: map,
@@ -53,9 +54,10 @@
                 //icon: iconHome
             });
 
-            google.maps.event.addListener(CDAM_marker, 'click', function () {
+            google.maps.event.addListener(Catarman, 'click', function () {
                 window.external.MarkerClicked("Catarman");
             });
+//====================================================================================
         }
         // apply domListener :
         //google.maps.event.addDomListener(window, 'load', initialize);
