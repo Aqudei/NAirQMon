@@ -13,6 +13,7 @@ Public Class MainForm
                     End Sub, Me)
 
         BeginInvoke(Sub(arg As Form)
+                        WebBrowser1.ScriptErrorsSuppressed = True
                         WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
                         WebBrowser1.Refresh()
                     End Sub, Me)
