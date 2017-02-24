@@ -14,14 +14,21 @@ Public Class MainForm
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowLogin()
 
+        Init()
+
+        LoadSensorData()
+    End Sub
+
+    Private Sub Init()
+
         BeginInvoke(Sub(arg As Form)
                         WebBrowser1.ScriptErrorsSuppressed = True
                         WebBrowser1.ObjectForScripting = New ScriptCallable
                         WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
                         WebBrowser1.Refresh()
-                    End Sub, Me)
 
-        LoadSensorData()
+                        LoadSensorData()
+                    End Sub, Me)
     End Sub
 
     Public Sub MarkerClicked(sensorName As Stream)
