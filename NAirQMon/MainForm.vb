@@ -13,6 +13,15 @@ Public Class MainForm
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowLogin()
+
+        BeginInvoke(Sub(arg As Form)
+                        WebBrowser1.ScriptErrorsSuppressed = True
+                        WebBrowser1.ObjectForScripting = New ScriptCallable
+                        WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
+                        WebBrowser1.Refresh()
+                    End Sub, Me)
+
+        LoadSensorData()
     End Sub
 
     Public Sub MarkerClicked(sensorName As Stream)
@@ -24,13 +33,6 @@ Public Class MainForm
 
         BeginInvoke(Sub(arg As Form)
                         loginForm.ShowDialog(arg)
-                    End Sub, Me)
-
-        BeginInvoke(Sub(arg As Form)
-                        WebBrowser1.ScriptErrorsSuppressed = True
-                        WebBrowser1.ObjectForScripting = New ScriptCallable
-                        WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
-                        WebBrowser1.Refresh()
                     End Sub, Me)
 
     End Sub
@@ -46,7 +48,7 @@ Public Class MainForm
                     Using importForm As New ImportSensorDataForm
                         importForm.TempSenseDataDataGridView.DataSource = sensorDatas
                         If importForm.ShowDialog() = DialogResult.OK Then
-                            'Do import here
+                            LoadSensorData()
                         End If
                     End Using
 
@@ -55,7 +57,13 @@ Public Class MainForm
         End Using
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Sub LoadSensorData()
+        Using ctx = New AirQContext
+            SensorDataDataGridView.DataSource = ctx.SensorDataItems.ToList
+        End Using
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SensorDataDataGridView.CellContentClick
 
     End Sub
 
