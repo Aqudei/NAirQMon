@@ -45,19 +45,161 @@
 
             //set markers :
 //=====================================================================================
-//          Duplicate this code block for each Marker that you want to put in the MAP
-            var Catarman = new google.maps.Marker({
+          //Duplicate this code block for each Marker that you want to put in the MAP
+            //var Catarman = new google.maps.Marker({
+            //    animation: google.maps.Animation.BOUNCE,
+            //    position: CDAM_Latlng,
+            //    map: map,
+            //    title: 'Catarman'
+            //    //icon: iconHome
+            //});
+
+            //google.maps.event.addListener(Catarman, 'click', function () {
+            //    Window.external.MarkerClicked("Catarman");
+                   
+            //});
+
+             
+
+
+            var dalakitContent = '<div id="content">' +
+            '<h1 id="firstHeading" class="firstHeading">Brgy.Dalakit</h1>Catarman Northern Samar <br>' +
+            '<div id="bodyContent">' +
+            '<p><b>CO Reading</b>, 2.0 <p>(last updated 2017-02-09 15:39:07).</p>' +
+            '</div>' +
+            '</div>';
+            var dalakitInfowindow = new google.maps.InfoWindow({
+                content: dalakitContent
+            });
+            var dalakitLocation = new google.maps.LatLng(12.503178, 124.623087)
+            var dalakitMarker = new google.maps.Marker({
                 animation: google.maps.Animation.BOUNCE,
-                position: CDAM_Latlng,
+                position: dalakitLocation,
                 map: map,
-                title: 'Catarman'
+                title: 'Brgy.dalakit'
                 //icon: iconHome
             });
 
-            google.maps.event.addListener(Catarman, 'click', function () {
-                window.external.MarkerClicked("Catarman");
+            dalakitMarker.addListener('mouseover', function () {
+                dalakitInfowindow.open(map, dalakitMarker);
             });
-//====================================================================================
+
+            dalakitMarker.addListener('mouseout', function () {
+                dalakitInfowindow.close();
+            });
+
+////=====================================================================================
+
+            var lapulapuContent = '<div id="content">' +
+            '<h1 id="firstHeading" class="firstHeading">Brgy.Lapu-lapu</h1>Catarman Northern Samar <br>' +
+            '<div id="bodyContent">' +
+            '<p><b>CO Reading</b>, 2.0 <p>(last updated 2017-02-09 15:39:07).</p>' +
+            '</div>' +
+            '</div>';
+            var lapulapuInfowindow = new google.maps.InfoWindow({
+                content: lapulapuContent
+            });
+            var lapulapuLocation = new google.maps.LatLng(12.499203, 124.64009)
+            var lapulapuMarker = new google.maps.Marker({
+                animation: google.maps.Animation.BOUNCE,
+                position: lapulapuLocation,
+                map: map,
+                title: 'Brgy.lapulapu'
+                //icon: iconHome
+            });
+
+
+            lapulapuMarker.addListener('mouseover', function () {
+                lapulapuInfowindow.open(map, lapulapuMarker);
+            });
+
+            lapulapuMarker.addListener('mouseout', function () {
+                lapulapuInfowindow.close();
+            });
+
+////=====================================================================================
+
+            var narraContent = '<div id="content">' +
+            '<h1 id="firstHeading" class="firstHeading">Brgy.Narra</h1>Catarman Northern Samar <br>' +
+            '<div id="bodyContent">' +
+            '<p><b>CO Reading</b>, 2.0 <p>(last updated 2017-02-09 15:39:07).</p>' +
+            '</div>' +
+            '</div>';
+            var narraInfowindow = new google.maps.InfoWindow({
+                content: narraContent
+            });
+            var narraLocation = new google.maps.LatLng(12.494797, 124.640807)
+            var narraMarker = new google.maps.Marker({
+                animation: google.maps.Animation.BOUNCE,
+                position: narraLocation,
+                map: map,
+                title: 'Brgy.Narra'
+                //icon: iconHome
+            });
+
+            narraMarker.addListener('mouseover', function () {
+                narraInfowindow.open(map, narraMarker);
+            });
+
+            narraMarker.addListener('mouseout', function () {
+                narraInfowindow.close();
+            });
+////=====================================================================================
+            var macagtasContent = '<div id="content">' +
+         '<h1 id="firstHeading" class="firstHeading">Brgy.Macagtas</h1>Catarman Northern Samar <br>' +
+         '<div id="bodyContent">' +
+         '<p><b>CO Reading</b>, 2.0 <p>(last updated 2017-02-09 15:39:07).</p>' +
+         '</div>' +
+         '</div>';
+            var macagtasInfowindow = new google.maps.InfoWindow({
+                content: macagtasContent
+            });
+            var macagtasLocation = new google.maps.LatLng(12.489845, 124.64029)
+            var macagtasMarker = new google.maps.Marker({
+                animation: google.maps.Animation.BOUNCE,
+                position: macagtasLocation,
+                map: map,
+                title: 'Brgy.macagtas'
+                //icon: iconHome
+            });
+
+            macagtasMarker.addListener('mouseover', function () {
+                macagtasInfowindow.open(map, macagtasMarker);
+            });
+
+            macagtasMarker.addListener('mouseout', function () {
+                macagtasInfowindow.close();
+            });
+////====================================================================================
+            var uepContent = '<div id="content">' +
+            '<h1 id="firstHeading" class="firstHeading">Brgy.Uep</h1>Catarman Northern Samar <br>' +
+            '<div id="bodyContent">' +
+            '<p><b>CO Reading</b>, 2.0 <p>(last updated 2017-02-09 15:39:07).</p>' +
+            '</div>' +
+            '</div>';
+            var uepInfowindow = new google.maps.InfoWindow({
+                content: uepContent
+            });
+            var uepLocation = new google.maps.LatLng(12.511187, 124.663615)
+            var uepMarker = new google.maps.Marker({
+                animation: google.maps.Animation.BOUNCE,
+                position: uepLocation,
+                map: map,
+                title: 'Brgy.uep'
+                //icon: iconHome
+            });
+
+            uepMarker.addListener('mouseover', function () {
+                uepInfowindow.open(map, uepMarker);
+            });
+
+            uepMarker.addListener('mouseout', function () {
+                uepInfowindow.close();
+            });
+            //====================================================================================
+
+
+
         }
         // apply domListener :
         //google.maps.event.addDomListener(window, 'load', initialize);

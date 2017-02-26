@@ -88,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirQContext.vb" />
+    <Compile Include="Guest.Designer.vb">
+      <DependentUpon>Guest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Guest.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Migrations\201702240759587_initial.Designer.vb">
       <DependentUpon>201702240759587_initial.vb</DependentUpon>
     </Compile>
@@ -146,6 +152,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Guest.resx">
+      <DependentUpon>Guest.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportSensorDataForm.resx">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -184,7 +193,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

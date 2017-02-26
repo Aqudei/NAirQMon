@@ -13,8 +13,8 @@ Public Class MainForm
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.SendToBack()
 
+        Me.Hide()
         ShowLogin()
 
         Init()
@@ -91,6 +91,31 @@ Public Class MainForm
     End Sub
 
     Private Sub TabPage3_Click(sender As Object, e As EventArgs) Handles TabPage3.Click
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles addAdminBtn.Click
+        Dim username As String
+        Dim password As String
+        Dim rpassword As String
+        Dim fName As String
+        Dim mName As String
+        Dim lName As String
+
+        username = usernameTb.Text
+        password = passwordTb.Text
+        rpassword = rpasswordTb.Text
+        If password.Equals(rpassword) Then
+
+        Else
+            MsgBox("Mismatch password")
+        End If
+        usernameTb.Clear()
+
+
+    End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
 
     End Sub
 End Class
