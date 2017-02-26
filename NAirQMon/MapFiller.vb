@@ -8,6 +8,7 @@ Public Class MapFiller
 
         Using context As New AirQContext
             Dim locs = context.Locations.ToList
+
             For Each loc As Location In locs
                 sb.Append("{")
                 sb.AppendFormat("LocationLabel:'{0}',", loc.LocationLabel.Trim)
