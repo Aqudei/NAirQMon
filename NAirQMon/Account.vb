@@ -18,7 +18,6 @@ Public Class Account
 
     Public Property LName As String
 
-
     <Key>
     Public Property AccountID As String
 

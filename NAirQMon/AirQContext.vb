@@ -43,6 +43,6 @@ Partial Public Class AirQContext
             .Property(Function(e) e.SensorName) _
             .IsFixedLength()
 
-        modelBuilder.Entity(Of Account)().Property(Property(e) e.
+
     End Sub
 End Class
