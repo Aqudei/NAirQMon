@@ -31,6 +31,7 @@ Partial Class MainForm
         Me.ImportDataLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -44,6 +45,7 @@ Partial Class MainForm
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
@@ -93,13 +95,13 @@ Partial Class MainForm
         Me.Panel2.Size = New System.Drawing.Size(760, 506)
         Me.Panel2.TabIndex = 2
         '
-        'DataGridView1
+        'SensorDataDataGridView
         '
         Me.SensorDataDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SensorDataDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SensorDataDataGridView.Location = New System.Drawing.Point(10, 10)
         Me.SensorDataDataGridView.Margin = New System.Windows.Forms.Padding(10)
-        Me.SensorDataDataGridView.Name = "DataGridView1"
+        Me.SensorDataDataGridView.Name = "SensorDataDataGridView"
         Me.SensorDataDataGridView.Size = New System.Drawing.Size(740, 486)
         Me.SensorDataDataGridView.TabIndex = 0
         '
@@ -137,6 +139,16 @@ Partial Class MainForm
         Me.WebBrowser1.Size = New System.Drawing.Size(770, 529)
         Me.WebBrowser1.TabIndex = 0
         '
+        'TabPage4
+        '
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(776, 535)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Manager"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -166,4 +178,5 @@ Partial Class MainForm
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents WebBrowser1 As WebBrowser
+    Friend WithEvents TabPage4 As TabPage
 End Class
