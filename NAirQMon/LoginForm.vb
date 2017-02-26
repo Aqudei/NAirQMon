@@ -9,8 +9,6 @@
     Private Sub guestBtn_Click(sender As Object, e As EventArgs) Handles guestBtn.Click
         Close()
         Guest.Show()
-
-
     End Sub
 
 
