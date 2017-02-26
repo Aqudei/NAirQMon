@@ -87,6 +87,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.vb" />
     <Compile Include="AirQContext.vb" />
     <Compile Include="Guest.Designer.vb">
       <DependentUpon>Guest.vb</DependentUpon>
