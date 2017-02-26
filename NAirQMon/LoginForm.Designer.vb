@@ -28,6 +28,7 @@ Partial Class LoginForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
         Me.CancelButton = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UsernameTextBox
@@ -82,14 +83,23 @@ Partial Class LoginForm
         Me.CancelButton.Text = "Cancel"
         Me.CancelButton.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(105, 99)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(156, 23)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "LogIn as Guest"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'LoginForm
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.CancelButton
-        Me.ClientSize = New System.Drawing.Size(284, 105)
+        Me.ClientSize = New System.Drawing.Size(284, 132)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PasswordTextBox)
@@ -111,4 +121,5 @@ Partial Class LoginForm
     Friend WithEvents Label2 As Label
     Friend WithEvents PasswordTextBox As TextBox
     Friend WithEvents CancelButton As Button
+    Friend WithEvents Button2 As Button
 End Class

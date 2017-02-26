@@ -40,6 +40,13 @@ Public Class MainForm
 
         BeginInvoke(Sub(arg As Form)
                         loginForm.ShowDialog(arg)
+                        If loginForm.IsGuest Then
+                            For Each p As TabPage In TabControl1.TabPages
+                                If p.Text.ToLower.Contains("overview") <> True Then
+                                    TabControl1.TabPages.Remove(p)
+                                End If
+                            Next
+                        End If
                     End Sub, Me)
 
     End Sub

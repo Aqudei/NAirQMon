@@ -1,10 +1,11 @@
 ﻿Public Class LoginForm
     Public Property IsLoggedin As Boolean = False
+    Public Property IsGuest As Boolean = False
 
     Private Sub Login_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If UsernameTextBox.Text = "1" And PasswordTextBox.Text = "1" Then
             IsLoggedin = True
-            Close()
+            Hide()
         End If
     End Sub
 
@@ -16,5 +17,11 @@
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
         IsLoggedin = False
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        IsGuest = True
+        IsLoggedin = True
+        DialogResult = DialogResult.OK
     End Sub
 End Class
