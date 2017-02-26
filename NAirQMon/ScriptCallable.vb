@@ -2,7 +2,9 @@
 Public Class ScriptCallable
 
     Public Sub MarkerClicked(marker As Object)
-        Debug.WriteLine(marker)
+        Using Form As New ReportingForm(marker)
+            Form.ShowDialog()
+        End Using
     End Sub
 
     Public Function GetMarkers() As String

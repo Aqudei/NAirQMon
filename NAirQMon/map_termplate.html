@@ -59,7 +59,8 @@
             //icon: iconHome
             // });
 
-            function clickListener(arg) {
+            function clickListener(arg, marker) {
+
                 return function () {
                     window.external.MarkerClicked(arg);
                 }
@@ -72,7 +73,7 @@
                     map: map,
                     title: markers[i].LocationLabel
                 });
-                m.addListener('click', clickListener(markers[i].LocationLabel));
+                m.addListener('click', clickListener(markers[i].LocationLabel), m);
             }
 
             //markers.forEach(function (marker) {
