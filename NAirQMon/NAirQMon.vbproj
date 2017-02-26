@@ -100,6 +100,12 @@
   <ItemGroup>
     <Compile Include="AirQContext.vb" />
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="MainReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MapFiller.vb" />
     <Compile Include="Migrations\201702240759587_initial.Designer.vb">
       <DependentUpon>201702240759587_initial.vb</DependentUpon>
@@ -166,6 +172,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MainReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MainReport.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportSensorDataForm.resx">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +225,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\praxis-banner-air-quality.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

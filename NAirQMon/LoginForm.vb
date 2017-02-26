@@ -13,4 +13,8 @@
             End
         End If
     End Sub
+
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+        IsLoggedin = False
+    End Sub
 End Class

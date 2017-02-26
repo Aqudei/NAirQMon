@@ -33,17 +33,18 @@ Partial Class ReportingForm
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(636, 316)
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(784, 561)
         Me.CrystalReportViewer1.TabIndex = 0
         '
         'ReportingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(636, 316)
+        Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Name = "ReportingForm"
         Me.Text = "ReportingForm"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

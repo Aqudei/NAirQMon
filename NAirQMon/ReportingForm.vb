@@ -1,4 +1,8 @@
-﻿Public Class ReportingForm
+﻿Imports NAirQMon
+
+Public Class ReportingForm
+
+
 
     Sub New()
 
@@ -6,7 +10,6 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-
     End Sub
 
     Sub New(locationLabel As String)
@@ -16,5 +19,16 @@
 
         ' Add any initialization after the InitializeComponent() call.
         Text = locationLabel
+        rpt = New MainReport
+        rpt.SetParameterValue("LocationLabel", locationLabel)
+        CrystalReportViewer1.ReportSource = rpt
+    End Sub
+
+    Public rpt As MainReport
+
+    Private Sub CrystalReportViewer1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CrystalReportViewer1.KeyPress
+        If e.KeyChar = vbCr Or e.KeyChar = vbNewLine Then
+
+        End If
     End Sub
 End Class
