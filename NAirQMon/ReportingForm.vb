@@ -27,8 +27,6 @@ Public Class ReportingForm
     Public rpt As MainReport
 
     Private Sub CrystalReportViewer1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CrystalReportViewer1.KeyPress
-        If e.KeyChar = vbCr Or e.KeyChar = vbNewLine Then
 
-        End If
     End Sub
 End Class
