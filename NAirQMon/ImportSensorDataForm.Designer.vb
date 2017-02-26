@@ -71,7 +71,7 @@ Partial Class ImportSensorDataForm
         Me.MaximizeBox = False
         Me.Name = "ImportSensorDataForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "ImportSensorDataForm"
+        Me.Text = "Import Sensor Data"
         CType(Me.TempSenseDataDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

@@ -3,6 +3,7 @@ Imports System.Collections.Generic
 Imports System.ComponentModel.DataAnnotations
 Imports System.ComponentModel.DataAnnotations.Schema
 Imports System.Data.Entity.Spatial
+Imports Newtonsoft.Json
 
 <Table("LocationTable")>
 Partial Public Class Location
@@ -21,5 +22,6 @@ Partial Public Class Location
     <StringLength(32)>
     Public Property SensorName As String
 
+    <JsonIgnore>
     Public Overridable Property SensorDataItems As ICollection(Of SensorDataItem)
 End Class

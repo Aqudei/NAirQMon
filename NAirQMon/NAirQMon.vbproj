@@ -59,6 +59,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -88,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirQContext.vb" />
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="MapFiller.vb" />
     <Compile Include="Migrations\201702240759587_initial.Designer.vb">
       <DependentUpon>201702240759587_initial.vb</DependentUpon>
     </Compile>
@@ -101,6 +107,7 @@
     </Compile>
     <Compile Include="Migrations\201702240835443_constrainst.vb" />
     <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="ScriptCallable.vb" />
     <Compile Include="SensorDataItem.vb" />
     <Compile Include="ImportSensorDataForm.Designer.vb">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
@@ -188,7 +195,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="map.html">
+    <Content Include="map_termplate.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\praxis-banner-air-quality.jpg" />

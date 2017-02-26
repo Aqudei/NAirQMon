@@ -3,13 +3,7 @@
 
 Public Class MainForm
 
-    <System.Runtime.InteropServices.ComVisible(True)>
-    Public Class ScriptCallable
-        Public Sub MarkerClicked(sensorName As String)
-            Debug.WriteLine(sensorName)
-        End Sub
 
-    End Class
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -28,9 +22,9 @@ Public Class MainForm
                 'Start loading map image
                 WebBrowser1.ScriptErrorsSuppressed = True
                 WebBrowser1.ObjectForScripting = New ScriptCallable
-                WebBrowser1.Url = New Uri(Path.Combine(Application.StartupPath, "map.html"))
+                Dim filledMap = MapFiller.FillMap(Path.Combine(Application.StartupPath, "map_termplate.html"))
+                WebBrowser1.Url = New Uri(filledMap)
                 WebBrowser1.Refresh()
-
                 LoadSensorData()
             End Sub, Me)
     End Sub
