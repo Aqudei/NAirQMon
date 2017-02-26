@@ -1,8 +1,8 @@
 ﻿<Runtime.InteropServices.ComVisible(True)>
 Public Class ScriptCallable
 
-    Public Sub MarkerClicked(sensorName As String)
-        Debug.WriteLine(sensorName)
+    Public Sub MarkerClicked(marker As Object)
+        Debug.WriteLine(marker)
     End Sub
 
     Public Function GetMarkers() As String

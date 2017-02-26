@@ -24,7 +24,7 @@
     <div id="map-canvas" class="map-canvas">
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
- 
+
     <script type="text/javascript">
 
         var map;
@@ -59,17 +59,20 @@
             //icon: iconHome
             // });
 
+            function clickListener(arg) {
+                return function () {
+                    window.external.MarkerClicked(arg);
+                }
+            }
+
             for (var i = 0; i < markers.length; i++) {
                 m = new google.maps.Marker({
-                    animation: google.maps.Animation.BOUNCE,
+                    animation: google.maps.Animation.DROP,
                     position: new google.maps.LatLng(markers[i].Lat, markers[i].Long),
                     map: map,
                     title: markers[i].LocationLabel
                 });
-
-                google.maps.event.addListener(m, 'click', function () {
-                    scriptHost.MarkerClicked(markers[i].LocationLabel);
-                });
+                m.addListener('click', clickListener(markers[i].LocationLabel));
             }
 
             //markers.forEach(function (marker) {
