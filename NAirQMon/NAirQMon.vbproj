@@ -87,6 +87,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.vb" />
     <Compile Include="AirQContext.vb" />
     <Compile Include="Guest.Designer.vb">
       <DependentUpon>Guest.vb</DependentUpon>
@@ -106,6 +107,10 @@
       <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201702240835443_constrainst.vb" />
+    <Compile Include="Migrations\201702261742108_added accounts.Designer.vb">
+      <DependentUpon>201702261742108_added accounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702261742108_added accounts.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="SensorDataItem.vb" />
     <Compile Include="ImportSensorDataForm.Designer.vb">
@@ -172,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702240835443_constrainst.resx">
       <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702261742108_added accounts.resx">
+      <DependentUpon>201702261742108_added accounts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
