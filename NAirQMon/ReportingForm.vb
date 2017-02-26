@@ -22,6 +22,8 @@ Public Class ReportingForm
         rpt = New MainReport
         rpt.SetParameterValue("LocationLabel", locationLabel)
         CrystalReportViewer1.ReportSource = rpt
+
+
     End Sub
 
     Public rpt As MainReport
