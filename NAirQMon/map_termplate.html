@@ -27,14 +27,12 @@
 
     <script type="text/javascript">
 
+        var infoWindows = {};
+
         var map;
         var scriptHost = window.external;
+
         function initialize() {
-
-
-            var dalakitContent = '<div id="content">' + '<h1 id="firstHeading" class="firstHeading">Brgy.Dalakit</h1>Catarman Northern Samar <br>' +
-                '<div id="bodyContent">' + '<p><b>CO Reading</b>, 2.0 <p>(last updated 2017-02-09 15:39:07).</p>' + '</div>' +
-                '</div>';
 
             //CADM GEO-INFO
             var CDAM_Latlng = new google.maps.LatLng(12.5023757, 124.6477579);
@@ -64,35 +62,58 @@
             //icon: iconHome
             // });
 
+            function getContentString(marker) {
+                return '<div id="content"><h2>[' + marker.SensorName + ']</h2> ' +
+                    '<h4>' + marker.Barangay + '</h4>' +
+                    '<h4>' + marker.Municipality + '</h4>' +
+                    '<h4>' + marker.Province + '</h4>' +
+                    '<h4> Carbon Monoxide: ' + marker.LastReading + '</h4>' +
+                    '<h4> Last Update: ' + marker.LastReadingDateTime + '</h4>' +
+                    '</div>';
+            }
+
             function clickListener(arg, marker) {
 
                 return function () {
                     window.external.MarkerClicked(arg);
-                }
+                };
+            }
+
+            function mapMouseOver(sensorName, marker) {
+
+                return function () {
+                    infoWindows[sensorName].open(map, marker);
+                };
+            }
+
+            function mapMouseOut(sensorName) {
+
+                return function () {
+                    infoWindows[sensorName].close();
+                };
             }
 
             for (var i = 0; i < markers.length; i++) {
-                m = new google.maps.Marker({
+                var infoWin = new google.maps.InfoWindow({
+                    content: getContentString(markers[i])
+                });
+                infoWindows[markers[i].SensorName] = infoWin;
+            }
+
+            for (var i = 0; i < markers.length; i++) {
+                var m = new google.maps.Marker({
                     animation: google.maps.Animation.DROP,
                     position: new google.maps.LatLng(markers[i].Lat, markers[i].Long),
                     map: map,
-                    title: markers[i].LocationLabel
+                    title: markers[i].SensorName
                 });
-                m.addListener('click', clickListener(markers[i].LocationLabel), m);
+
+                m.addListener('click', clickListener(markers[i].SensorName, m));
+                m.addListener('mouseover', mapMouseOver(markers[i].SensorName, m));
+                m.addListener('mouseout', mapMouseOut(markers[i].SensorName));
             }
 
-            //markers.forEach(function (marker) {
-            //    m = new google.maps.Marker({
-            //        animation: google.maps.Animation.BOUNCE,
-            //        position: new google.maps.LatLng(marker.Lat, marker.Long),
-            //        map: map,
-            //        title: marker.LocationLabel
-            //    });
 
-            //    google.maps.event.addListener(m, 'click', function () {
-            //        scriptHost.MarkerClicked(marker.LocationLabel);
-            //    });
-            //});
 
             //google.maps.event.addListener(Catarman, 'click', function () {
             //    window.external.MarkerClicked("Catarman");

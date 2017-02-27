@@ -10,10 +10,32 @@ Public Class MapFiller
             Dim locs = context.Locations.ToList
 
             For Each loc As Location In locs
+
+                Dim lasVal = context.SensorDataItems _
+                    .Where(Function(s) s.SensorName = loc.SensorName) _
+                    .OrderByDescending(Function(o) o.TimeRead) _
+                    .FirstOrDefault
+
                 sb.Append("{")
-                sb.AppendFormat("LocationLabel:'{0}',", loc.SensorName.Trim)
+                sb.AppendFormat("SensorName:'{0}',", loc.SensorName.Trim)
                 sb.AppendFormat("Lat:{0},", loc.Latitude)
-                sb.AppendFormat("Long:{0}", loc.Longitude)
+                sb.AppendFormat("Long:{0},", loc.Longitude)
+                sb.AppendFormat("Barangay:'{0}',", loc.Barangay)
+                sb.AppendFormat("Municipality:'{0}',", loc.Municipality)
+                sb.AppendFormat("Province:'{0}'", loc.Province)
+
+                If lasVal IsNot Nothing Then
+                    sb.AppendFormat(", LastReading:'{0}'", lasVal.CarbonMonoxideLevel.ToString)
+                Else
+                    sb.AppendFormat(", LastReading:'{0}'", "N/A")
+                End If
+
+                If lasVal IsNot Nothing Then
+                    sb.AppendFormat(", LastReadingDateTime:'{0}'", lasVal.TimeRead.ToString)
+                Else
+                    sb.AppendFormat(", LastReadingDateTime:'{0}'", "N/A")
+                End If
+
                 sb.Append("},")
             Next
             MarkersAsString = sb.ToString().TrimEnd(",".ToCharArray)
