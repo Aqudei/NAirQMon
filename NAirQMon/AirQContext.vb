@@ -12,6 +12,7 @@ Partial Public Class AirQContext
 
     Public Overridable Property SensorDataItems As DbSet(Of SensorDataItem)
     Public Overridable Property Locations As DbSet(Of Location)
+    Public Overridable Property UserAccounts As DbSet(Of UserAccount)
 
     Protected Overrides Sub OnModelCreating(ByVal modelBuilder As DbModelBuilder)
 
@@ -35,5 +36,8 @@ Partial Public Class AirQContext
         modelBuilder.Entity(Of Location)() _
             .Property(Function(e) e.SensorName) _
             .IsFixedLength()
+
+        modelBuilder.Entity(Of UserAccount)().HasKey(Function(k) k.UserAccounId) _
+            .Property(Function(p) p.UserAccounId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
     End Sub
 End Class

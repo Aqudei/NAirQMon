@@ -3,28 +3,20 @@
 
 Public Class MainForm
 
-
-
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Me.SendToBack()
-
         ShowLogin()
-
         Init()
     End Sub
 
     Private Sub Init()
-
         BeginInvoke(
             Sub(arg As Form)
-
                 'Start loading map image
                 WebBrowser1.ScriptErrorsSuppressed = True
                 WebBrowser1.ObjectForScripting = New ScriptCallable
-                Dim filledMap = MapFiller.FillMap(Path.Combine(Application.StartupPath, "map_termplate.html"))
-                WebBrowser1.Url = New Uri(filledMap)
-                WebBrowser1.Refresh()
+
+
                 LoadSensorData()
                 LoadLocations()
             End Sub, Me)
@@ -38,7 +30,6 @@ Public Class MainForm
 
     Sub ShowLogin()
         Dim loginForm = New LoginForm
-
         BeginInvoke(Sub(arg As Form)
                         loginForm.ShowDialog(arg)
                         If loginForm.IsGuest Then
@@ -49,7 +40,6 @@ Public Class MainForm
                             Next
                         End If
                     End Sub, Me)
-
     End Sub
 
     Private Sub ImportDataLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ImportDataLinkLabel.LinkClicked
@@ -59,7 +49,6 @@ Public Class MainForm
                 If ofd.FileNames.Length > 0 Then
                     'Open File Here
                     Dim sensorDatas = SensorDataReader.ReadFileReturnSensorDataList(ofd.FileNames(0))
-
                     Using importForm As New ImportSensorDataForm
                         importForm.TempSenseDataDataGridView.DataSource = sensorDatas
                         If importForm.ShowDialog() = DialogResult.OK Then
@@ -76,28 +65,24 @@ Public Class MainForm
         Using ctx = New AirQContext
             SensorDataDataGridView.DataSource = ctx.SensorDataItems.ToList
         End Using
+
+        LoadMap()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SensorDataDataGridView.CellContentClick
-
+    Sub LoadMap()
+        BeginInvoke(Sub()
+                        Dim filledMap = MapFiller.FillMap(Path.Combine(Application.StartupPath, "map_termplate.html"))
+                        WebBrowser1.Url = New Uri(filledMap)
+                        WebBrowser1.Refresh()
+                    End Sub)
     End Sub
 
     Private Sub TabControl1_TabIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.TabIndexChanged
         If TabControl1.TabPages(TabControl1.TabIndex).Text.ToLower.Contains("overview") Then
-
         End If
     End Sub
 
-    Private Sub TabControl1_Click(sender As Object, e As EventArgs) Handles TabControl1.Click
-
-    End Sub
-
-    Private Sub TabPage3_Click(sender As Object, e As EventArgs) Handles TabPage3.Click
-
-    End Sub
-
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-
         Dim newLoc As New Location
         With newLoc
             .Barangay = BarangayTextBox.Text
@@ -107,12 +92,10 @@ Public Class MainForm
             .Province = ProvinceTextBox.Text
             .SensorName = ShortNameTextBox.Text
         End With
-
         Using ctx = New AirQContext
             ctx.Locations.Add(newLoc)
             ctx.SaveChanges()
         End Using
-
         LoadLocations()
     End Sub
 
@@ -121,19 +104,13 @@ Public Class MainForm
             MsgBox("Nothing is selected", MsgBoxStyle.Exclamation, "Error")
             Return
         End If
-
         For Each item As DataGridViewRow In LocationsDataGridView.SelectedRows
-
             Dim loc = CType(item.DataBoundItem, Location)
-
             Using ctx = New AirQContext
-
                 Dim itm = ctx.Locations.Find(loc.SensorName)
-
                 ctx.Locations.Remove(itm)
                 ctx.SaveChanges()
             End Using
-
             LoadLocations()
         Next
     End Sub
@@ -142,6 +119,21 @@ Public Class MainForm
         Using ctx = New AirQContext
             LocationsDataGridView.DataBindings.Clear()
             LocationsDataGridView.DataSource = ctx.Locations.ToList
+        End Using
+        LoadMap()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub addAccBtn_Click(sender As Object, e As EventArgs) Handles addAccBtn.Click
+        Using ctx As New AirQContext
+            Dim newAccount = New UserAccount
+            newAccount.UserPass = PasswordCopyTextBox.Text
+            newAccount.Username = UsernameTextBox.Text
+            ctx.UserAccounts.Add(newAccount)
+            ctx.SaveChanges()
         End Using
     End Sub
 End Class
