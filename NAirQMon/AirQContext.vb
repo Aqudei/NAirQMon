@@ -30,12 +30,6 @@ Partial Public Class AirQContext
             .Property(Function(e) e.SensorName) _
             .IsFixedLength()
 
-        'modelBuilder.Entity(Of SensorDataItem)().HasOptional(Function(e) e.SensorName)
-
-        modelBuilder.Entity(Of Location)().ToTable("LocationTable") _
-            .Property(Function(e) e.LocationLabel) _
-            .IsUnicode(False)
-
         modelBuilder.Entity(Of Location)().HasMany(Function(e) e.SensorDataItems).WithOptional()
 
         modelBuilder.Entity(Of Location)() _

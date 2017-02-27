@@ -11,7 +11,7 @@ Public Class MapFiller
 
             For Each loc As Location In locs
                 sb.Append("{")
-                sb.AppendFormat("LocationLabel:'{0}',", loc.LocationLabel.Trim)
+                sb.AppendFormat("LocationLabel:'{0}',", loc.SensorName.Trim)
                 sb.AppendFormat("Lat:{0},", loc.Latitude)
                 sb.AppendFormat("Long:{0}", loc.Longitude)
                 sb.Append("},")

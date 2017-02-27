@@ -26,6 +26,7 @@ Public Class MainForm
                 WebBrowser1.Url = New Uri(filledMap)
                 WebBrowser1.Refresh()
                 LoadSensorData()
+                LoadLocations()
             End Sub, Me)
     End Sub
 
@@ -93,5 +94,54 @@ Public Class MainForm
 
     Private Sub TabPage3_Click(sender As Object, e As EventArgs) Handles TabPage3.Click
 
+    End Sub
+
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+
+        Dim newLoc As New Location
+        With newLoc
+            .Barangay = BarangayTextBox.Text
+            .Latitude = LatitudeTextBox.Text
+            .Longitude = LongitudeTextBox.Text
+            .Municipality = MunicipalityTextBox.Text
+            .Province = ProvinceTextBox.Text
+            .SensorName = ShortNameTextBox.Text
+        End With
+
+        Using ctx = New AirQContext
+            ctx.Locations.Add(newLoc)
+            ctx.SaveChanges()
+        End Using
+
+        LoadLocations()
+    End Sub
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        If LocationsDataGridView.SelectedRows.Count <= 0 Then
+            MsgBox("Nothing is selected", MsgBoxStyle.Exclamation, "Error")
+            Return
+        End If
+
+        For Each item As DataGridViewRow In LocationsDataGridView.SelectedRows
+
+            Dim loc = CType(item.DataBoundItem, Location)
+
+            Using ctx = New AirQContext
+
+                Dim itm = ctx.Locations.Find(loc.SensorName)
+
+                ctx.Locations.Remove(itm)
+                ctx.SaveChanges()
+            End Using
+
+            LoadLocations()
+        Next
+    End Sub
+
+    Sub LoadLocations()
+        Using ctx = New AirQContext
+            LocationsDataGridView.DataBindings.Clear()
+            LocationsDataGridView.DataSource = ctx.Locations.ToList
+        End Using
     End Sub
 End Class

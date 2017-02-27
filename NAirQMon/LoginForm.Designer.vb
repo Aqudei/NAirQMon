@@ -80,7 +80,7 @@ Partial Class LoginForm
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(75, 23)
         Me.CancelButton.TabIndex = 5
-        Me.CancelButton.Text = "Cancel"
+        Me.CancelButton.Text = "Quit"
         Me.CancelButton.UseVisualStyleBackColor = True
         '
         'Button2

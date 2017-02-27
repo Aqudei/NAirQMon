@@ -119,6 +119,22 @@
       <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201702240835443_constrainst.vb" />
+    <Compile Include="Migrations\201702270350337_added description.Designer.vb">
+      <DependentUpon>201702270350337_added description.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702270350337_added description.vb" />
+    <Compile Include="Migrations\201702270351294_remove description.Designer.vb">
+      <DependentUpon>201702270351294_remove description.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702270351294_remove description.vb" />
+    <Compile Include="Migrations\201702270358306_added fields to Location.Designer.vb">
+      <DependentUpon>201702270358306_added fields to Location.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702270358306_added fields to Location.vb" />
+    <Compile Include="Migrations\201702270410550_remove location-label.Designer.vb">
+      <DependentUpon>201702270410550_remove location-label.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702270410550_remove location-label.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingForm.Designer.vb">
       <DependentUpon>ReportingForm.vb</DependentUpon>
@@ -193,6 +209,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702240835443_constrainst.resx">
       <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270350337_added description.resx">
+      <DependentUpon>201702270350337_added description.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270351294_remove description.resx">
+      <DependentUpon>201702270351294_remove description.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270358306_added fields to Location.resx">
+      <DependentUpon>201702270358306_added fields to Location.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270410550_remove location-label.resx">
+      <DependentUpon>201702270410550_remove location-label.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

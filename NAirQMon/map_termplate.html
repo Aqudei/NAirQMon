@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>My Map</title>
+    <title>Air Quality Monitoring System</title>
 </head>
 <body>
     <style>
@@ -23,13 +23,18 @@
     </style>
     <div id="map-canvas" class="map-canvas">
     </div>
-    
-    
+
+
     <script type="text/javascript">
 
         var map;
         var scriptHost = window.external;
         function initialize() {
+
+
+            var dalakitContent = '<div id="content">' + '<h1 id="firstHeading" class="firstHeading">Brgy.Dalakit</h1>Catarman Northern Samar <br>' +
+                '<div id="bodyContent">' + '<p><b>CO Reading</b>, 2.0 <p>(last updated 2017-02-09 15:39:07).</p>' + '</div>' +
+                '</div>';
 
             //CADM GEO-INFO
             var CDAM_Latlng = new google.maps.LatLng(12.5023757, 124.6477579);
