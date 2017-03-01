@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 
-Public Class MainForm
+Public Class MainFormCopy
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Hide()
