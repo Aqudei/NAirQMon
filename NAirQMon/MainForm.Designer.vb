@@ -28,9 +28,6 @@ Partial Class MainForm
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -55,10 +52,9 @@ Partial Class MainForm
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.MetroButton5 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton4 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton3 = New MetroFramework.Controls.MetroButton()
         Me.SensorDataDataGridView = New MetroFramework.Controls.MetroGrid()
+        Me.DeleteImport = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.ImportDataLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -78,10 +74,9 @@ Partial Class MainForm
         Me.Label19 = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.AccountDataGridView = New MetroFramework.Controls.MetroGrid()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.SearchAccountButton = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.SaveAccountButton = New System.Windows.Forms.Button()
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
@@ -97,6 +92,7 @@ Partial Class MainForm
         Me.UsernameTextBox = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.AccountManager1 = New NAirQMon.AccountManager()
         Me.TabControl1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -113,7 +109,6 @@ Partial Class MainForm
         Me.SplitContainer1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TabPage5.SuspendLayout()
-        CType(Me.AccountDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -139,7 +134,7 @@ Partial Class MainForm
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage4.Size = New System.Drawing.Size(736, 604)
         Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Location Management"
+        Me.TabPage4.Text = "Add Location"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
         'Panel3
@@ -159,7 +154,7 @@ Partial Class MainForm
         Me.LocationsDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LocationsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LocationsDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        Me.LocationsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.LocationsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
@@ -168,7 +163,7 @@ Partial Class MainForm
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.LocationsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.LocationsDataGridView.ColumnHeadersHeight = 50
+        Me.LocationsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
@@ -183,22 +178,19 @@ Partial Class MainForm
         Me.LocationsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LocationsDataGridView.Location = New System.Drawing.Point(0, 20)
         Me.LocationsDataGridView.Name = "LocationsDataGridView"
-        Me.LocationsDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.LocationsDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.LocationsDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.LocationsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.LocationsDataGridView.RowTemplate.DividerHeight = 3
-        Me.LocationsDataGridView.RowTemplate.Height = 40
+        Me.LocationsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.LocationsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.LocationsDataGridView.Size = New System.Drawing.Size(730, 346)
-        Me.LocationsDataGridView.Style = MetroFramework.MetroColorStyle.Blue
-        Me.LocationsDataGridView.TabIndex = 0
+        Me.LocationsDataGridView.TabIndex = 3
         '
         'GroupBox1
         '
@@ -378,7 +370,7 @@ Partial Class MainForm
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(736, 604)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Data Management"
+        Me.TabPage2.Text = "Data Import"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'Panel1
@@ -394,46 +386,15 @@ Partial Class MainForm
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.MetroButton5)
-        Me.Panel2.Controls.Add(Me.MetroButton4)
-        Me.Panel2.Controls.Add(Me.MetroButton3)
         Me.Panel2.Controls.Add(Me.SensorDataDataGridView)
+        Me.Panel2.Controls.Add(Me.DeleteImport)
+        Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(5, 18)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(10)
         Me.Panel2.Size = New System.Drawing.Size(720, 575)
         Me.Panel2.TabIndex = 2
-        '
-        'MetroButton5
-        '
-        Me.MetroButton5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroButton5.Location = New System.Drawing.Point(618, 334)
-        Me.MetroButton5.Name = "MetroButton5"
-        Me.MetroButton5.Size = New System.Drawing.Size(75, 23)
-        Me.MetroButton5.TabIndex = 6
-        Me.MetroButton5.Text = "Delete"
-        Me.MetroButton5.UseSelectable = True
-        '
-        'MetroButton4
-        '
-        Me.MetroButton4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroButton4.Location = New System.Drawing.Point(618, 374)
-        Me.MetroButton4.Name = "MetroButton4"
-        Me.MetroButton4.Size = New System.Drawing.Size(75, 23)
-        Me.MetroButton4.TabIndex = 5
-        Me.MetroButton4.Text = "Print"
-        Me.MetroButton4.UseSelectable = True
-        '
-        'MetroButton3
-        '
-        Me.MetroButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroButton3.Location = New System.Drawing.Point(618, 412)
-        Me.MetroButton3.Name = "MetroButton3"
-        Me.MetroButton3.Size = New System.Drawing.Size(75, 23)
-        Me.MetroButton3.TabIndex = 4
-        Me.MetroButton3.Text = "Search"
-        Me.MetroButton3.UseSelectable = True
         '
         'SensorDataDataGridView
         '
@@ -478,8 +439,27 @@ Partial Class MainForm
         Me.SensorDataDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.SensorDataDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.SensorDataDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SensorDataDataGridView.Size = New System.Drawing.Size(607, 548)
+        Me.SensorDataDataGridView.Size = New System.Drawing.Size(604, 558)
         Me.SensorDataDataGridView.TabIndex = 3
+        '
+        'DeleteImport
+        '
+        Me.DeleteImport.Location = New System.Drawing.Point(666, 333)
+        Me.DeleteImport.Name = "DeleteImport"
+        Me.DeleteImport.Size = New System.Drawing.Size(75, 23)
+        Me.DeleteImport.TabIndex = 2
+        Me.DeleteImport.Text = "Delete"
+        Me.DeleteImport.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Button2.Location = New System.Drawing.Point(626, 353)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Print"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'ImportDataLinkLabel
         '
@@ -592,7 +572,7 @@ Partial Class MainForm
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(73, 497)
+        Me.Button3.Location = New System.Drawing.Point(64, 492)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 46)
         Me.Button3.TabIndex = 13
@@ -611,7 +591,7 @@ Partial Class MainForm
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(85, 411)
+        Me.Label15.Location = New System.Drawing.Point(75, 409)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(63, 17)
         Me.Label15.TabIndex = 8
@@ -620,7 +600,7 @@ Partial Class MainForm
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(85, 329)
+        Me.Label16.Location = New System.Drawing.Point(75, 319)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(67, 17)
         Me.Label16.TabIndex = 6
@@ -629,7 +609,7 @@ Partial Class MainForm
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(85, 241)
+        Me.Label17.Location = New System.Drawing.Point(75, 241)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(85, 17)
         Me.Label17.TabIndex = 4
@@ -638,7 +618,7 @@ Partial Class MainForm
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(85, 165)
+        Me.Label18.Location = New System.Drawing.Point(75, 166)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(73, 17)
         Me.Label18.TabIndex = 2
@@ -647,7 +627,7 @@ Partial Class MainForm
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(85, 84)
+        Me.Label19.Location = New System.Drawing.Point(75, 85)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(87, 17)
         Me.Label19.TabIndex = 0
@@ -664,7 +644,7 @@ Partial Class MainForm
         '
         'TabPage5
         '
-        Me.TabPage5.Controls.Add(Me.AccountDataGridView)
+        Me.TabPage5.Controls.Add(Me.AccountManager1)
         Me.TabPage5.Controls.Add(Me.Label20)
         Me.TabPage5.Controls.Add(Me.GroupBox2)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
@@ -673,50 +653,6 @@ Partial Class MainForm
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Account Management"
         Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'AccountDataGridView
-        '
-        Me.AccountDataGridView.AllowUserToResizeRows = False
-        Me.AccountDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.AccountDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        Me.AccountDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AccountDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
-        Me.AccountDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(136, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(136, Byte), Integer))
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.AccountDataGridView.DefaultCellStyle = DataGridViewCellStyle8
-        Me.AccountDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountDataGridView.EnableHeadersVisualStyles = False
-        Me.AccountDataGridView.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.AccountDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountDataGridView.Location = New System.Drawing.Point(0, 20)
-        Me.AccountDataGridView.Name = "AccountDataGridView"
-        Me.AccountDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AccountDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
-        Me.AccountDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.AccountDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.AccountDataGridView.Size = New System.Drawing.Size(736, 352)
-        Me.AccountDataGridView.TabIndex = 4
         '
         'Label20
         '
@@ -732,7 +668,7 @@ Partial Class MainForm
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.SearchAccountButton)
+        Me.GroupBox2.Controls.Add(Me.Button4)
         Me.GroupBox2.Controls.Add(Me.Button5)
         Me.GroupBox2.Controls.Add(Me.SaveAccountButton)
         Me.GroupBox2.Controls.Add(Me.LastNameTextBox)
@@ -756,15 +692,15 @@ Partial Class MainForm
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Account Details"
         '
-        'SearchAccountButton
+        'Button4
         '
-        Me.SearchAccountButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SearchAccountButton.Location = New System.Drawing.Point(636, 83)
-        Me.SearchAccountButton.Name = "SearchAccountButton"
-        Me.SearchAccountButton.Size = New System.Drawing.Size(75, 46)
-        Me.SearchAccountButton.TabIndex = 13
-        Me.SearchAccountButton.Text = "Search"
-        Me.SearchAccountButton.UseVisualStyleBackColor = True
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.Location = New System.Drawing.Point(636, 83)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 46)
+        Me.Button4.TabIndex = 13
+        Me.Button4.Text = "Search"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
         '
@@ -898,6 +834,15 @@ Partial Class MainForm
         Me.TabPage1.Text = "About This Project"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'AccountManager1
+        '
+        Me.AccountManager1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AccountManager1.Location = New System.Drawing.Point(0, 20)
+        Me.AccountManager1.Name = "AccountManager1"
+        Me.AccountManager1.Size = New System.Drawing.Size(736, 352)
+        Me.AccountManager1.TabIndex = 4
+        Me.AccountManager1.UseSelectable = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -906,7 +851,6 @@ Partial Class MainForm
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "MainForm"
         Me.Text = "Air Quality Monitoring System"
-        Me.Theme = MetroFramework.MetroThemeStyle.[Default]
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
@@ -929,7 +873,6 @@ Partial Class MainForm
         Me.GroupBox3.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
-        CType(Me.AccountDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
@@ -961,6 +904,7 @@ Partial Class MainForm
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Button2 As Button
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents TextBox8 As TextBox
@@ -978,7 +922,7 @@ Partial Class MainForm
     Friend WithEvents Label19 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents SearchAccountButton As Button
+    Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents SaveAccountButton As Button
     Friend WithEvents LastNameTextBox As TextBox
@@ -993,13 +937,11 @@ Partial Class MainForm
     Friend WithEvents Label12 As Label
     Friend WithEvents UsernameTextBox As TextBox
     Friend WithEvents Label13 As Label
+    Friend WithEvents DeleteImport As Button
     Friend WithEvents SensorDataDataGridView As MetroFramework.Controls.MetroGrid
     Friend WithEvents LocationsDataGridView As MetroFramework.Controls.MetroGrid
     Friend WithEvents MetroButton1 As MetroFramework.Controls.MetroButton
     Friend WithEvents SaveLocationButton As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroButton2 As MetroFramework.Controls.MetroButton
-    Friend WithEvents AccountDataGridView As MetroFramework.Controls.MetroGrid
-    Friend WithEvents MetroButton3 As MetroFramework.Controls.MetroButton
-    Friend WithEvents MetroButton5 As MetroFramework.Controls.MetroButton
-    Friend WithEvents MetroButton4 As MetroFramework.Controls.MetroButton
+    Friend WithEvents AccountManager1 As AccountManager
 End Class

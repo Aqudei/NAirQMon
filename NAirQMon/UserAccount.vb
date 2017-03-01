@@ -3,6 +3,12 @@ Imports System.ComponentModel.DataAnnotations.Schema
 
 <Table("UserAccountTable")>
 Public Class UserAccount
+
+
+    Sub New()
+        IsActive = True
+    End Sub
+
     Private _userAccoundId As Integer
     <Key>
     Public Property UserAccounId() As Integer
@@ -68,4 +74,16 @@ Public Class UserAccount
             _userLastName = value
         End Set
     End Property
+
+    Private _isActive As Boolean
+    Public Property IsActive() As Boolean
+        Get
+            Return _isActive
+        End Get
+        Set(ByVal value As Boolean)
+            _isActive = value
+        End Set
+    End Property
+
+
 End Class

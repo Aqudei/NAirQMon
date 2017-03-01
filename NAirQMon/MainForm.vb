@@ -15,9 +15,10 @@ Public Class MainForm
                 'Start loading map image
                 WebBrowser1.ScriptErrorsSuppressed = True
                 WebBrowser1.ObjectForScripting = New ScriptCallable
+
+
                 LoadSensorData()
                 LoadLocations()
-                LoadAccount()
             End Sub, Me)
     End Sub
 
@@ -64,6 +65,7 @@ Public Class MainForm
         Using ctx = New AirQContext
             SensorDataDataGridView.DataSource = ctx.SensorDataItems.ToList
         End Using
+
         LoadMap()
     End Sub
 
@@ -124,27 +126,7 @@ Public Class MainForm
     End Sub
 
     Sub LoadAccount()
-        Using ctx = New AirQContext
-            AccountDataGridView.DataBindings.Clear()
-            AccountDataGridView.DataSource = ctx.UserAccounts.ToList
-        End Using
-    End Sub
 
-
-    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
-        If LocationsDataGridView.SelectedRows.Count <= 0 Then
-            MsgBox("Nothing is selected", MsgBoxStyle.Exclamation, "Error")
-            Return
-        End If
-        For Each item As DataGridViewRow In LocationsDataGridView.SelectedRows
-            Dim loc = CType(item.DataBoundItem, Location)
-            Using ctx = New AirQContext
-                Dim itm = ctx.Locations.Find(loc.SensorName)
-                ctx.Locations.Remove(itm)
-                ctx.SaveChanges()
-            End Using
-            LoadLocations()
-        Next
     End Sub
 
     Private Sub SaveLocationButton_Click(sender As Object, e As EventArgs) Handles SaveLocationButton.Click
@@ -162,5 +144,21 @@ Public Class MainForm
             ctx.SaveChanges()
         End Using
         LoadLocations()
+    End Sub
+
+    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
+        If LocationsDataGridView.SelectedRows.Count <= 0 Then
+            MsgBox("Nothing is selected", MsgBoxStyle.Exclamation, "Error")
+            Return
+        End If
+        For Each item As DataGridViewRow In LocationsDataGridView.SelectedRows
+            Dim loc = CType(item.DataBoundItem, Location)
+            Using ctx = New AirQContext
+                Dim itm = ctx.Locations.Find(loc.SensorName)
+                ctx.Locations.Remove(itm)
+                ctx.SaveChanges()
+            End Using
+            LoadLocations()
+        Next
     End Sub
 End Class

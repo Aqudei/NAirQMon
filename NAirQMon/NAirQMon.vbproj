@@ -76,7 +76,10 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Basic 2005 Power Packs\3.0\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -113,6 +116,10 @@
   <ItemGroup>
     <Compile Include="AirQContext.vb" />
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="CustomControls\TransparentPB.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataAccessObjects\AccountDao.vb" />
     <Compile Include="MainReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,10 +175,10 @@
       <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703010039161_fix middle to middleName.vb" />
-    <Compile Include="Migrations\201703010351586_StringLength added.Designer.vb">
-      <DependentUpon>201703010351586_StringLength added.vb</DependentUpon>
+    <Compile Include="Migrations\201703010244234_addedUserStatus.Designer.vb">
+      <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703010351586_StringLength added.vb" />
+    <Compile Include="Migrations\201703010244234_addedUserStatus.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingForm.Designer.vb">
       <DependentUpon>ReportingForm.vb</DependentUpon>
@@ -222,6 +229,12 @@
     </Compile>
     <Compile Include="SplashForm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TabPages\AccountManager.Designer.vb">
+      <DependentUpon>AccountManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TabPages\AccountManager.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserAccount.vb" />
   </ItemGroup>
@@ -275,8 +288,8 @@
     <EmbeddedResource Include="Migrations\201703010039161_fix middle to middleName.resx">
       <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703010351586_StringLength added.resx">
-      <DependentUpon>201703010351586_StringLength added.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703010244234_addedUserStatus.resx">
+      <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -290,12 +303,16 @@
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TabPages\AccountManager.resx">
+      <DependentUpon>AccountManager.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\UserAccount.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -310,6 +327,9 @@
     <Content Include="map_termplate.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\lockt.gif" />
+    <None Include="Resources\lock1.png" />
+    <None Include="Resources\lock.png" />
     <None Include="Resources\praxis-banner-air-quality.jpg" />
   </ItemGroup>
   <ItemGroup>
