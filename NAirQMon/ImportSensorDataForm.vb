@@ -8,7 +8,7 @@ Public Class ImportSensorDataForm
 
             For Each sensorDataItem As SensorDataItem In datas
 
-                If ctx.SensorDataItems.Any(Function(s) s.TimeRead.Equals(sensorDataItem.TimeRead)) = False Then
+                If ctx.SensorDataItems.Any(Function(s) s.TimeRead = sensorDataItem.TimeRead) = False Then
                     ctx.SensorDataItems.Add(sensorDataItem)
                 End If
             Next
