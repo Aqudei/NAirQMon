@@ -13,8 +13,12 @@ Partial Public Class Location
 
     Public Property Latitude As Double?
     Public Property Longitude As Double?
+
+    <StringLength(32)>
     Public Property Barangay As String
+    <StringLength(32)>
     Public Property Municipality As String
+    <StringLength(32)>
     Public Property Province As String
 
     <Key>

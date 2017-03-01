@@ -168,6 +168,10 @@
       <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703010039161_fix middle to middleName.vb" />
+    <Compile Include="Migrations\201703010351586_StringLength added.Designer.vb">
+      <DependentUpon>201703010351586_StringLength added.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010351586_StringLength added.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingForm.Designer.vb">
       <DependentUpon>ReportingForm.vb</DependentUpon>
@@ -270,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703010039161_fix middle to middleName.resx">
       <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010351586_StringLength added.resx">
+      <DependentUpon>201703010351586_StringLength added.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

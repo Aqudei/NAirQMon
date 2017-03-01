@@ -15,7 +15,6 @@
                 End If
             Next
             MsgBox("Error Username or Password")
-
         End If
     End Sub
 
@@ -25,6 +24,7 @@
         End If
     End Sub
 
+    'This will
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
         IsLoggedin = False
     End Sub
@@ -36,10 +36,12 @@
         DialogResult = DialogResult.OK
     End Sub
 
+    'This will clear Username Textbox
     Private Sub UsernameTextBox_MouseClick(sender As Object, e As MouseEventArgs) Handles UsernameTextBox.MouseClick
         UsernameTextBox.Clear()
     End Sub
 
+    'This will clear Password Textbox
     Private Sub PasswordTextBox_MouseClick(sender As Object, e As MouseEventArgs) Handles PasswordTextBox.MouseClick
         PasswordTextBox.Clear()
     End Sub
