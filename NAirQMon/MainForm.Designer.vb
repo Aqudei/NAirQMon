@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MainForm
+Partial Class MainFormCopy
     Inherits MetroFramework.Forms.MetroForm
 
     'Form overrides dispose to clean up the component list.
@@ -74,6 +74,7 @@ Partial Class MainForm
         Me.Label19 = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.AccountManager1 = New NAirQMon.AccountManager()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -92,7 +93,6 @@ Partial Class MainForm
         Me.UsernameTextBox = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.AccountManager1 = New NAirQMon.AccountManager()
         Me.TabControl1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -654,6 +654,15 @@ Partial Class MainForm
         Me.TabPage5.Text = "Account Management"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
+        'AccountManager1
+        '
+        Me.AccountManager1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AccountManager1.Location = New System.Drawing.Point(0, 20)
+        Me.AccountManager1.Name = "AccountManager1"
+        Me.AccountManager1.Size = New System.Drawing.Size(736, 352)
+        Me.AccountManager1.TabIndex = 4
+        Me.AccountManager1.UseSelectable = True
+        '
         'Label20
         '
         Me.Label20.AutoSize = True
@@ -834,22 +843,13 @@ Partial Class MainForm
         Me.TabPage1.Text = "About This Project"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'AccountManager1
-        '
-        Me.AccountManager1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountManager1.Location = New System.Drawing.Point(0, 20)
-        Me.AccountManager1.Name = "AccountManager1"
-        Me.AccountManager1.Size = New System.Drawing.Size(736, 352)
-        Me.AccountManager1.TabIndex = 4
-        Me.AccountManager1.UseSelectable = True
-        '
-        'MainForm
+        'MainFormCopy
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 710)
         Me.Controls.Add(Me.TabControl1)
-        Me.Name = "MainForm"
+        Me.Name = "MainFormCopy"
         Me.Text = "Air Quality Monitoring System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)

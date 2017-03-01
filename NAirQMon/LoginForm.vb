@@ -9,7 +9,7 @@
     Sub SuccessLogin()
         IsLoggedin = True
         Hide()
-        MainForm.Show()
+        MainFormCopy.Show()
     End Sub
 
     Sub FailedLogin(Optional msg As String = "Error Username or Password")
@@ -40,16 +40,16 @@
             Dim found = ctx.UserAccounts.Where(Function(u) u.Username = username And u.UserPass = password).FirstOrDefault
 
             If found Is Nothing Then
-                TryAuthenticate = False
                 message = "Error Username or Password"
-
+                Return False
             ElseIf found.IsActive = True Then
-                TryAuthenticate = True
+                Return True
             ElseIf found.IsActive = False Then
                 message = "Your account is inactive." + vbNewLine + "Please contact the administrator."
+                Return False
             Else
-                TryAuthenticate = False
                 message = "Login Failed" + vbNewLine + "Unknown Error."
+                Return False
             End If
         End Using
     End Function
@@ -71,7 +71,7 @@
     Sub LoginAsGuest()
         IsGuest = True
         IsLoggedin = True
-        MainForm.Show()
+        MainFormCopy.Show()
         DialogResult = DialogResult.OK
     End Sub
 
