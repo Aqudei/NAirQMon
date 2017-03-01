@@ -183,6 +183,10 @@
       <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703010533474_plsFix.vb" />
+    <Compile Include="Migrations\201703010712344_morepa.Designer.vb">
+      <DependentUpon>201703010712344_morepa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010712344_morepa.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingForm.Designer.vb">
       <DependentUpon>ReportingForm.vb</DependentUpon>
@@ -240,6 +244,7 @@
     <Compile Include="TabPages\AccountManager.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UniqueReadingsEQComparer.vb" />
     <Compile Include="UserAccount.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -297,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703010533474_plsFix.resx">
       <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010712344_morepa.resx">
+      <DependentUpon>201703010712344_morepa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

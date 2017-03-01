@@ -1,7 +1,9 @@
 ﻿Imports System.IO
 
 
-Public Class MainFormCopy
+Public Class MainForm
+
+
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Hide()
@@ -43,14 +45,20 @@ Public Class MainFormCopy
     End Sub
 
     Private Sub ImportDataLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ImportDataLinkLabel.LinkClicked
+        Dim sensorDatas As New List(Of SensorDataItem)()
+
         Using ofd As New OpenFileDialog
             ofd.Multiselect = True
             If ofd.ShowDialog() = DialogResult.OK Then
                 If ofd.FileNames.Length > 0 Then
-                    'Open File Here
-                    Dim sensorDatas = SensorDataReader.ReadFileReturnSensorDataList(ofd.FileNames(0))
+
+                    'Open all selected Files
+                    For Each filename In ofd.FileNames
+                        sensorDatas.AddRange(SensorDataReader.ReadFileReturnSensorDataList(filename))
+                    Next
+                    Dim uniqueReadings = sensorDatas.Distinct(New UniqueReadingsEQComparer).ToList()
                     Using importForm As New ImportSensorDataForm
-                        importForm.TempSenseDataDataGridView.DataSource = sensorDatas
+                        importForm.TempSenseDataDataGridView.DataSource = uniqueReadings
                         If importForm.ShowDialog() = DialogResult.OK Then
                             LoadSensorData()
                         End If
