@@ -1,8 +1,14 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports System.ComponentModel.DataAnnotations.Schema
 
+<Table("UserAccountTable")>
 Public Class UserAccount
-    Private _userAccoundId As Integer
 
+    'Sub New()
+    '    IsActive = True
+    'End Sub
+
+    Private _userAccoundId As Integer
     <Key>
     Public Property UserAccounId() As Integer
         Get
@@ -13,6 +19,7 @@ Public Class UserAccount
         End Set
     End Property
 
+    <StringLength(20)>
     Private _username As String
     Public Property Username() As String
         Get
@@ -23,6 +30,7 @@ Public Class UserAccount
         End Set
     End Property
 
+    <StringLength(20)>
     Private _userPass As String
     Public Property UserPass() As String
         Get
@@ -33,6 +41,7 @@ Public Class UserAccount
         End Set
     End Property
 
+    <StringLength(20)>
     Private _userFirstName As String
     Public Property FirstName() As String
         Get
@@ -43,6 +52,7 @@ Public Class UserAccount
         End Set
     End Property
 
+    <StringLength(20)>
     Private _userMiddleName As String
     Public Property MiddleName() As String
         Get
@@ -53,6 +63,7 @@ Public Class UserAccount
         End Set
     End Property
 
+    <StringLength(20)>
     Private _userLastName As String
     Public Property LastName As String
         Get
@@ -62,4 +73,14 @@ Public Class UserAccount
             _userLastName = value
         End Set
     End Property
+
+    'Public Property _isActive As Boolean
+    'Public Property IsActive() As Boolean
+    '    Get
+    '        Return _isActive
+    '    End Get
+    '    Set(ByVal value As Boolean)
+    '        _isActive = value
+    '    End Set
+    'End Property
 End Class

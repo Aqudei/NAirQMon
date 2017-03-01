@@ -15,10 +15,9 @@ Public Class MainForm
                 'Start loading map image
                 WebBrowser1.ScriptErrorsSuppressed = True
                 WebBrowser1.ObjectForScripting = New ScriptCallable
-
-
                 LoadSensorData()
                 LoadLocations()
+                LoadAccount()
             End Sub, Me)
     End Sub
 
@@ -65,7 +64,6 @@ Public Class MainForm
         Using ctx = New AirQContext
             SensorDataDataGridView.DataSource = ctx.SensorDataItems.ToList
         End Using
-
         LoadMap()
     End Sub
 
@@ -123,6 +121,7 @@ Public Class MainForm
             ctx.SaveChanges()
         End Using
         LoadAccount()
+        ClearTextBox()
     End Sub
 
     Sub LoadAccount()
@@ -132,23 +131,21 @@ Public Class MainForm
         End Using
     End Sub
 
+    Sub ClearTextBox()
+        Dim toVisit As New List(Of Control)
+        toVisit.Add(Me)
+        Do Until (toVisit.Count = 0)
+            Dim cur As Control = toVisit(0)
+            toVisit.RemoveAt(0)
+            For Each child As Control In cur.Controls
+                toVisit.Add(child)
+            Next
 
-
-    Private Sub SaveLocationButton_Click(sender As Object, e As EventArgs) Handles SaveLocationButton.Click
-        Dim newLoc As New Location
-        With newLoc
-            .Barangay = BarangayTextBox.Text
-            .Latitude = LatitudeTextBox.Text
-            .Longitude = LongitudeTextBox.Text
-            .Municipality = MunicipalityTextBox.Text
-            .Province = ProvinceTextBox.Text
-            .SensorName = ShortNameTextBox.Text
-        End With
-        Using ctx = New AirQContext
-            ctx.Locations.Add(newLoc)
-            ctx.SaveChanges()
-        End Using
-        LoadLocations()
+            Dim tb As TextBox = TryCast(cur, TextBox)
+            If tb IsNot Nothing Then
+                tb.Text = String.Empty
+            End If
+        Loop
     End Sub
 
     Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
@@ -166,4 +163,24 @@ Public Class MainForm
             LoadLocations()
         Next
     End Sub
+
+    Private Sub SaveLocationButton_Click(sender As Object, e As EventArgs) Handles SaveLocationButton.Click
+        Dim newLoc As New Location
+        With newLoc
+            .Barangay = BarangayTextBox.Text
+            .Latitude = LatitudeTextBox.Text
+            .Longitude = LongitudeTextBox.Text
+            .Municipality = MunicipalityTextBox.Text
+            .Province = ProvinceTextBox.Text
+            .SensorName = ShortNameTextBox.Text
+        End With
+        Using ctx = New AirQContext
+            ctx.Locations.Add(newLoc)
+            ctx.SaveChanges()
+        End Using
+        LoadLocations()
+        ClearTextBox()
+    End Sub
+
+
 End Class
