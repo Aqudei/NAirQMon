@@ -4,7 +4,7 @@
 Public Class MainForm
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.SendToBack()
+        Me.Hide()
         ShowLogin()
         Init()
     End Sub
@@ -82,7 +82,7 @@ Public Class MainForm
         End If
     End Sub
 
-    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs)
         Dim newLoc As New Location
         With newLoc
             .Barangay = BarangayTextBox.Text
@@ -99,7 +99,59 @@ Public Class MainForm
         LoadLocations()
     End Sub
 
-    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+
+
+    Sub LoadLocations()
+        Using ctx = New AirQContext
+            LocationsDataGridView.DataBindings.Clear()
+            LocationsDataGridView.DataSource = ctx.Locations.ToList
+        End Using
+        LoadMap()
+    End Sub
+
+
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles SaveAccountButton.Click
+        Using ctx As New AirQContext
+            Dim newAccount = New UserAccount
+            newAccount.UserPass = PasswordCopyTextBox.Text
+            newAccount.Username = UsernameTextBox.Text
+            newAccount.FirstName = FirstNameTextBox.Text
+            newAccount.MiddleName = MiddleNameTextBox.Text
+            newAccount.LastName = LastNameTextBox.Text
+            ctx.UserAccounts.Add(newAccount)
+            ctx.SaveChanges()
+        End Using
+        LoadAccount()
+    End Sub
+
+    Sub LoadAccount()
+        Using ctx = New AirQContext
+            AccountDataGridView.DataBindings.Clear()
+            AccountDataGridView.DataSource = ctx.UserAccounts.ToList
+        End Using
+    End Sub
+
+
+
+    Private Sub SaveLocationButton_Click(sender As Object, e As EventArgs) Handles SaveLocationButton.Click
+        Dim newLoc As New Location
+        With newLoc
+            .Barangay = BarangayTextBox.Text
+            .Latitude = LatitudeTextBox.Text
+            .Longitude = LongitudeTextBox.Text
+            .Municipality = MunicipalityTextBox.Text
+            .Province = ProvinceTextBox.Text
+            .SensorName = ShortNameTextBox.Text
+        End With
+        Using ctx = New AirQContext
+            ctx.Locations.Add(newLoc)
+            ctx.SaveChanges()
+        End Using
+        LoadLocations()
+    End Sub
+
+    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
         If LocationsDataGridView.SelectedRows.Count <= 0 Then
             MsgBox("Nothing is selected", MsgBoxStyle.Exclamation, "Error")
             Return
@@ -113,27 +165,5 @@ Public Class MainForm
             End Using
             LoadLocations()
         Next
-    End Sub
-
-    Sub LoadLocations()
-        Using ctx = New AirQContext
-            LocationsDataGridView.DataBindings.Clear()
-            LocationsDataGridView.DataSource = ctx.Locations.ToList
-        End Using
-        LoadMap()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub addAccBtn_Click(sender As Object, e As EventArgs) Handles addAccBtn.Click
-        Using ctx As New AirQContext
-            Dim newAccount = New UserAccount
-            newAccount.UserPass = PasswordCopyTextBox.Text
-            newAccount.Username = UsernameTextBox.Text
-            ctx.UserAccounts.Add(newAccount)
-            ctx.SaveChanges()
-        End Using
     End Sub
 End Class

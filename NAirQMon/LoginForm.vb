@@ -6,7 +6,7 @@
         If UsernameTextBox.Text = "1" And PasswordTextBox.Text = "1" Then
             IsLoggedin = True
             Hide()
-            MsgBox("Login succesfull")
+            MainForm.Show()
         Else
             Dim textbox As Control
             For Each textbox In Me.Controls
@@ -32,6 +32,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles LoginAsButton.Click
         IsGuest = True
         IsLoggedin = True
+        MainForm.Show()
         DialogResult = DialogResult.OK
     End Sub
 

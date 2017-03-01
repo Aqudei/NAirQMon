@@ -32,4 +32,34 @@ Public Class UserAccount
             _userPass = value
         End Set
     End Property
+
+    Private _userFirstName As String
+    Public Property FirstName() As String
+        Get
+            Return _userFirstName
+        End Get
+        Set(value As String)
+            _userFirstName = value
+        End Set
+    End Property
+
+    Private _userMiddleName As String
+    Public Property MiddleName() As String
+        Get
+            Return _userMiddleName
+        End Get
+        Set(value As String)
+            _userMiddleName = value
+        End Set
+    End Property
+
+    Private _userLastName As String
+    Public Property LastName As String
+        Get
+            Return _userLastName
+        End Get
+        Set(value As String)
+            _userLastName = value
+        End Set
+    End Property
 End Class

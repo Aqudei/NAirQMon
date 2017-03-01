@@ -64,6 +64,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -148,6 +160,14 @@
       <DependentUpon>201702272212558_to userpass.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201702272212558_to userpass.vb" />
+    <Compile Include="Migrations\201703010037302_added complete account.Designer.vb">
+      <DependentUpon>201703010037302_added complete account.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010037302_added complete account.vb" />
+    <Compile Include="Migrations\201703010039161_fix middle to middleName.Designer.vb">
+      <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010039161_fix middle to middleName.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingForm.Designer.vb">
       <DependentUpon>ReportingForm.vb</DependentUpon>
@@ -244,6 +264,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702272212558_to userpass.resx">
       <DependentUpon>201702272212558_to userpass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010037302_added complete account.resx">
+      <DependentUpon>201703010037302_added complete account.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010039161_fix middle to middleName.resx">
+      <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
