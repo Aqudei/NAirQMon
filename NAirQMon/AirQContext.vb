@@ -7,7 +7,7 @@ Partial Public Class AirQContext
     Inherits DbContext
 
     Public Sub New()
-        MyBase.New("name=AirQContext")
+        MyBase.New("AirQContext")
     End Sub
 
     Public Overridable Property SensorDataItems As DbSet(Of SensorDataItem)

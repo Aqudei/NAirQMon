@@ -179,6 +179,10 @@
       <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703010244234_addedUserStatus.vb" />
+    <Compile Include="Migrations\201703010533474_plsFix.Designer.vb">
+      <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010533474_plsFix.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingForm.Designer.vb">
       <DependentUpon>ReportingForm.vb</DependentUpon>
@@ -290,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703010244234_addedUserStatus.resx">
       <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010533474_plsFix.resx">
+      <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

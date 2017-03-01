@@ -40,16 +40,18 @@
             Dim found = ctx.UserAccounts.Where(Function(u) u.Username = username And u.UserPass = password).FirstOrDefault
 
             If found Is Nothing Then
-                TryAuthenticate = False
-                message = "Error Username or Password"
 
+                message = "Error Username or Password"
+                Return False
             ElseIf found.IsActive = True Then
-                TryAuthenticate = True
+                Return True
             ElseIf found.IsActive = False Then
                 message = "Your account is inactive." + vbNewLine + "Please contact the administrator."
+                Return False
             Else
-                TryAuthenticate = False
+
                 message = "Login Failed" + vbNewLine + "Unknown Error."
+                Return False
             End If
         End Using
     End Function
@@ -91,11 +93,5 @@
         LoginAsGuest()
     End Sub
 
-    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
-
-    End Sub
 End Class
