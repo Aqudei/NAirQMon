@@ -126,13 +126,8 @@ Public Class MainForm
     End Sub
 
     Sub LoadAccount()
-        Using ctx = New AirQContext
-            AccountDataGridView.DataBindings.Clear()
-            AccountDataGridView.DataSource = ctx.UserAccounts.ToList
-        End Using
+
     End Sub
-
-
 
     Private Sub SaveLocationButton_Click(sender As Object, e As EventArgs) Handles SaveLocationButton.Click
         Dim newLoc As New Location
