@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Air Quality Monitoring System</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+
+        .map-canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <div id="map-canvas" class="map-canvas">
+    </div>
+
+
+    <script type="text/javascript">
+
+        var infoWindows = {};
+
+        var map;
+        var scriptHost = window.external;
+
+        function initialize() {
+
+            //CADM GEO-INFO
+            var CDAM_Latlng = new google.maps.LatLng(12.5023757, 124.6477579);
+            var CDAM_mapOptions = {
+                zoom: 14,
+                center: CDAM_Latlng
+            };
+
+            var markers = ['[markers]'];
+
+            // the map :
+            var map = new google.maps.Map(document.getElementById('map-canvas'), CDAM_mapOptions);
+            google.maps.event.trigger(map, 'resize');
+
+            //markers icon :
+            var iconHome = "[marker]";
+
+
+            //set markers :
+            //=====================================================================================
+            //          Duplicate this code block for each Marker that you want to put in the MAP
+            //var Catarman = new google.maps.Marker({
+            //    animation: google.maps.Animation.BOUNCE,
+            //    position: CDAM_Latlng,
+            //    map: map,
+            //    title: 'Catarman'
+            //icon: iconHome
+            // });
+
+            function getContentString(marker) {
+                return '<div id="content"><h2>[' + marker.SensorName + ']</h2> ' +
+                    '<h4>' + marker.Barangay + '</h4>' +
+                    '<h4>' + marker.Municipality + '</h4>' +
+                    '<h4>' + marker.Province + '</h4>' +
+                    '<h4> Carbon Monoxide: ' + marker.LastReading + '</h4>' +
+                    '<h4> Last Update: ' + marker.LastReadingDateTime + '</h4>' +
+                    '</div>';
+            }
+
+            function clickListener(arg, marker) {
+
+                return function () {
+                    window.external.MarkerClicked(arg);
+                };
+            }
+
+            function mapMouseOver(sensorName, marker) {
+
+                return function () {
+                    infoWindows[sensorName].open(map, marker);
+                };
+            }
+
+            function mapMouseOut(sensorName) {
+
+                return function () {
+                    infoWindows[sensorName].close();
+                };
+            }
+
+            for (var i = 0; i < markers.length; i++) {
+                var infoWin = new google.maps.InfoWindow({
+                    content: getContentString(markers[i])
+                });
+                infoWindows[markers[i].SensorName] = infoWin;
+            }
+
+            for (var i = 0; i < markers.length; i++) {
+                var m = new google.maps.Marker({
+                    animation: google.maps.Animation.DROP,
+                    position: new google.maps.LatLng(markers[i].Lat, markers[i].Long),
+                    map: map,
+                    title: markers[i].SensorName
+                });
+
+                m.addListener('click', clickListener(markers[i].SensorName, m));
+                m.addListener('mouseover', mapMouseOver(markers[i].SensorName, m));
+                m.addListener('mouseout', mapMouseOut(markers[i].SensorName));
+            }
+
+
+
+            //google.maps.event.addListener(Catarman, 'click', function () {
+            //    window.external.MarkerClicked("Catarman");
+            //});
+            //====================================================================================
+        }
+        // apply domListener :
+        //google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSk8jDGYlf4ftufnFCKvXWwXRrDo8kc5c&callback=initialize"></script>
+</body>
+
+</html>

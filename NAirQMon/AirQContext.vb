@@ -7,12 +7,12 @@ Partial Public Class AirQContext
     Inherits DbContext
 
     Public Sub New()
-        MyBase.New("name=AirQContext")
+        MyBase.New("AirQContext")
     End Sub
 
     Public Overridable Property SensorDataItems As DbSet(Of SensorDataItem)
     Public Overridable Property Locations As DbSet(Of Location)
-    Public Overridable Property Accounts As DbSet(Of Account)
+    Public Overridable Property UserAccounts As DbSet(Of UserAccount)
 
     Protected Overrides Sub OnModelCreating(ByVal modelBuilder As DbModelBuilder)
 
@@ -31,18 +31,13 @@ Partial Public Class AirQContext
             .Property(Function(e) e.SensorName) _
             .IsFixedLength()
 
-        'modelBuilder.Entity(Of SensorDataItem)().HasOptional(Function(e) e.SensorName)
-
-        modelBuilder.Entity(Of Location)().ToTable("LocationTable") _
-            .Property(Function(e) e.LocationLabel) _
-            .IsUnicode(False)
-
         modelBuilder.Entity(Of Location)().HasMany(Function(e) e.SensorDataItems).WithOptional()
 
         modelBuilder.Entity(Of Location)() _
             .Property(Function(e) e.SensorName) _
             .IsFixedLength()
 
-
+        modelBuilder.Entity(Of UserAccount)().HasKey(Function(k) k.UserAccounId) _
+            .Property(Function(p) p.UserAccounId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
     End Sub
 End Class

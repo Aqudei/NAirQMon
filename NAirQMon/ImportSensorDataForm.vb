@@ -6,8 +6,11 @@ Public Class ImportSensorDataForm
             Dim datas = From d As DataGridViewRow In TempSenseDataDataGridView.Rows
                         Select d.DataBoundItem
 
-            For Each d In datas
-                ctx.SensorDataItems.Add(d)
+            For Each sensorDataItem As SensorDataItem In datas
+
+                If ctx.SensorDataItems.Any(Function(s) s.TimeRead.Equals(sensorDataItem.TimeRead)) = False Then
+                    ctx.SensorDataItems.Add(sensorDataItem)
+                End If
             Next
 
             ctx.SaveChanges()

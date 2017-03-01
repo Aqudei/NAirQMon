@@ -51,12 +51,37 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Basic 2005 Power Packs\3.0\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -66,6 +91,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -87,14 +114,19 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.vb" />
     <Compile Include="AirQContext.vb" />
-    <Compile Include="Guest.Designer.vb">
-      <DependentUpon>Guest.vb</DependentUpon>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="CustomControls\TransparentPB.vb">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Guest.vb">
-      <SubType>Form</SubType>
+    <Compile Include="DataAccessObjects\AccountDao.vb" />
+    <Compile Include="MainReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MapFiller.vb" />
     <Compile Include="Migrations\201702240759587_initial.Designer.vb">
       <DependentUpon>201702240759587_initial.vb</DependentUpon>
     </Compile>
@@ -107,11 +139,62 @@
       <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201702240835443_constrainst.vb" />
-    <Compile Include="Migrations\201702261742108_added accounts.Designer.vb">
-      <DependentUpon>201702261742108_added accounts.vb</DependentUpon>
+    <Compile Include="Migrations\201702270350337_added description.Designer.vb">
+      <DependentUpon>201702270350337_added description.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702261742108_added accounts.vb" />
+    <Compile Include="Migrations\201702270350337_added description.vb" />
+    <Compile Include="Migrations\201702270351294_remove description.Designer.vb">
+      <DependentUpon>201702270351294_remove description.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702270351294_remove description.vb" />
+    <Compile Include="Migrations\201702270358306_added fields to Location.Designer.vb">
+      <DependentUpon>201702270358306_added fields to Location.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702270358306_added fields to Location.vb" />
+    <Compile Include="Migrations\201702270410550_remove location-label.Designer.vb">
+      <DependentUpon>201702270410550_remove location-label.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702270410550_remove location-label.vb" />
+    <Compile Include="Migrations\201702272158398_ewan.Designer.vb">
+      <DependentUpon>201702272158398_ewan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702272158398_ewan.vb" />
+    <Compile Include="Migrations\201702272203392_added user accounts.Designer.vb">
+      <DependentUpon>201702272203392_added user accounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702272203392_added user accounts.vb" />
+    <Compile Include="Migrations\201702272212558_to userpass.Designer.vb">
+      <DependentUpon>201702272212558_to userpass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702272212558_to userpass.vb" />
+    <Compile Include="Migrations\201703010037302_added complete account.Designer.vb">
+      <DependentUpon>201703010037302_added complete account.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010037302_added complete account.vb" />
+    <Compile Include="Migrations\201703010039161_fix middle to middleName.Designer.vb">
+      <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010039161_fix middle to middleName.vb" />
+    <Compile Include="Migrations\201703010244234_addedUserStatus.Designer.vb">
+      <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010244234_addedUserStatus.vb" />
+    <Compile Include="Migrations\201703010533474_plsFix.Designer.vb">
+      <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010533474_plsFix.vb" />
+    <Compile Include="Migrations\201703010712344_morepa.Designer.vb">
+      <DependentUpon>201703010712344_morepa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703010712344_morepa.vb" />
     <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="ReportingForm.Designer.vb">
+      <DependentUpon>ReportingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScriptCallable.vb" />
     <Compile Include="SensorDataItem.vb" />
     <Compile Include="ImportSensorDataForm.Designer.vb">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
@@ -155,10 +238,19 @@
     <Compile Include="SplashForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TabPages\AccountManager.Designer.vb">
+      <DependentUpon>AccountManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TabPages\AccountManager.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UniqueReadingsEQComparer.vb" />
+    <Compile Include="UserAccount.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Guest.resx">
-      <DependentUpon>Guest.vb</DependentUpon>
+    <EmbeddedResource Include="MainReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MainReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportSensorDataForm.resx">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
@@ -178,8 +270,41 @@
     <EmbeddedResource Include="Migrations\201702240835443_constrainst.resx">
       <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702261742108_added accounts.resx">
-      <DependentUpon>201702261742108_added accounts.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702270350337_added description.resx">
+      <DependentUpon>201702270350337_added description.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270351294_remove description.resx">
+      <DependentUpon>201702270351294_remove description.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270358306_added fields to Location.resx">
+      <DependentUpon>201702270358306_added fields to Location.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702270410550_remove location-label.resx">
+      <DependentUpon>201702270410550_remove location-label.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702272158398_ewan.resx">
+      <DependentUpon>201702272158398_ewan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702272203392_added user accounts.resx">
+      <DependentUpon>201702272203392_added user accounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702272212558_to userpass.resx">
+      <DependentUpon>201702272212558_to userpass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010037302_added complete account.resx">
+      <DependentUpon>201703010037302_added complete account.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010039161_fix middle to middleName.resx">
+      <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010244234_addedUserStatus.resx">
+      <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010533474_plsFix.resx">
+      <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703010712344_morepa.resx">
+      <DependentUpon>201703010712344_morepa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -187,8 +312,14 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportingForm.resx">
+      <DependentUpon>ReportingForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabPages\AccountManager.resx">
+      <DependentUpon>AccountManager.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +327,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\UserAccount.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -207,10 +339,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="map.html">
+    <Content Include="map_termplate.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\lockt.gif" />
+    <None Include="Resources\lock1.png" />
+    <None Include="Resources\lock.png" />
     <None Include="Resources\praxis-banner-air-quality.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

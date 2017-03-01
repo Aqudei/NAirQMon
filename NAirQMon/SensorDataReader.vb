@@ -40,7 +40,7 @@ Public Class SensorDataReader
             'Set first column to sensor name
             Dim newItem = New SensorDataItem
             With newItem
-                .SensorName = Path.GetFileNameWithoutExtension(filename)
+                .SensorName = Path.GetFileNameWithoutExtension(filename).Trim("0123456789".ToCharArray)
                 .TimeRead = DateTime.Parse(csvs(1), dtf.FormatProvider)
                 .CarbonMonoxideLevel = Single.Parse(csvs(2))
                 .WarningLevel = Single.Parse(csvs(3))

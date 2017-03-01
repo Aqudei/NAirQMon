@@ -6,6 +6,11 @@ Imports System.Data.Entity.Spatial
 
 <Table("AirQualityTable")>
 Partial Public Class SensorDataItem
+
+    Public Sub New()
+        TimeRead = DateTime.Now
+    End Sub
+
     Public Property TimeRead As Date?
 
     Public Property CarbonMonoxideLevel As Single?
@@ -28,4 +33,17 @@ Partial Public Class SensorDataItem
     Public Property SensorDataItemId As Integer
 
     Public Overridable Property LocationTable As Location
+
+    Public Overloads Overrides Function Equals(obj As Object) As Boolean
+        If obj Is Nothing Then Return False
+        If TypeOf (obj) IsNot SensorDataItem Then Return False
+
+        Return MyBase.Equals(obj) And TimeRead = CType(obj, SensorDataItem).TimeRead
+    End Function
+
+    Public Overrides Function GetHashCode() As Integer
+        Return MyBase.GetHashCode() Xor TimeRead.GetHashCode
+    End Function
+
+
 End Class
