@@ -23,6 +23,9 @@
 
             ctx.UserAccounts.Remove(toBeDeleted)
             ctx.SaveChanges()
+            MetroFramework.MetroMessageBox.Show(Me, "Delete Successfull")
+
+
         End Using
     End Sub
 
@@ -40,6 +43,7 @@
             Next
 
             ctx.SaveChanges()
+            MetroFramework.MetroMessageBox.Show(Me, "Save Successfull")
         End Using
     End Sub
 
@@ -54,6 +58,7 @@
     End Sub
 
     Private Sub AccountManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If DesignMode = True Then Return 
         LoadAccounts()
     End Sub
 

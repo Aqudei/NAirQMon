@@ -12,12 +12,12 @@ Public Class MapFiller
             For Each loc As Location In locs
 
                 Dim lasVal = context.SensorDataItems _
-                    .Where(Function(s) s.SensorName = loc.SensorName) _
+                    .Where(Function(s) s.Place = loc.Place) _
                     .OrderByDescending(Function(o) o.TimeRead) _
                     .FirstOrDefault
 
                 sb.Append("{")
-                sb.AppendFormat("SensorName:'{0}',", loc.SensorName.Trim)
+                sb.AppendFormat("Place:'{0}',", loc.Place.Trim)
                 sb.AppendFormat("Lat:{0},", loc.Latitude)
                 sb.AppendFormat("Long:{0},", loc.Longitude)
                 sb.AppendFormat("Barangay:'{0}',", loc.Barangay)

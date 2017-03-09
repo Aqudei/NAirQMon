@@ -63,7 +63,7 @@
             // });
 
             function getContentString(marker) {
-                return '<div id="content"><h2>[' + marker.SensorName + ']</h2> ' +
+                return '<div id="content"><h2>[' + marker.Place + ']</h2> ' +
                     '<h4>' + marker.Barangay + '</h4>' +
                     '<h4>' + marker.Municipality + '</h4>' +
                     '<h4>' + marker.Province + '</h4>' +
@@ -97,7 +97,7 @@
                 var infoWin = new google.maps.InfoWindow({
                     content: getContentString(markers[i])
                 });
-                infoWindows[markers[i].SensorName] = infoWin;
+                infoWindows[markers[i].Place] = infoWin;
             }
 
             for (var i = 0; i < markers.length; i++) {
@@ -105,12 +105,12 @@
                     animation: google.maps.Animation.DROP,
                     position: new google.maps.LatLng(markers[i].Lat, markers[i].Long),
                     map: map,
-                    title: markers[i].SensorName
+                    title: markers[i].Place
                 });
 
-                m.addListener('click', clickListener(markers[i].SensorName, m));
-                m.addListener('mouseover', mapMouseOver(markers[i].SensorName, m));
-                m.addListener('mouseout', mapMouseOut(markers[i].SensorName));
+                m.addListener('click', clickListener(markers[i].Place, m));
+                m.addListener('mouseover', mapMouseOver(markers[i].Place, m));
+                m.addListener('mouseout', mapMouseOut(markers[i].Place));
             }
 
 

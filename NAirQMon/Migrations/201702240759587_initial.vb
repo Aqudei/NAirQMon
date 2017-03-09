@@ -11,35 +11,35 @@ Namespace Migrations
                 "dbo.LocationTable",
                 Function(c) New With
                     {
-                        .SensorName = c.String(nullable := False, maxLength := 32, fixedLength := true),
-                        .LocationLabel = c.String(unicode := false, storeType := "text"),
+                        .Place = c.String(nullable:=False, maxLength:=32, fixedLength:=True),
+                        .LocationLabel = c.String(unicode:=False, storeType:="text"),
                         .Latitude = c.Double(),
                         .Longitude = c.Double()
                     }) _
-                .PrimaryKey(Function(t) t.SensorName)
-            
+                .PrimaryKey(Function(t) t.Place)
+
             CreateTable(
                 "dbo.AirQualityTable",
                 Function(c) New With
                     {
-                        .SensorDataItemId = c.Int(nullable := False, identity := True),
+                        .SensorDataItemId = c.Int(nullable:=False, identity:=True),
                         .TimeRead = c.DateTime(),
                         .CarbonMonoxideLevel = c.Single(),
                         .WarningLevel = c.Single(),
-                        .SerialNumber = c.String(maxLength := 10, fixedLength := true),
-                        .SensorLifeExpiry = c.DateTime(storeType := "date"),
-                        .OverrangeExposure = c.String(maxLength := 10, fixedLength := true),
-                        .SensorName = c.String(maxLength := 32, fixedLength := true)
+                        .SerialNumber = c.String(maxLength:=10, fixedLength:=True),
+                        .SensorLifeExpiry = c.DateTime(storeType:="date"),
+                        .OverrangeExposure = c.String(maxLength:=10, fixedLength:=True),
+                        .Place = c.String(maxLength:=32, fixedLength:=True)
                     }) _
                 .PrimaryKey(Function(t) t.SensorDataItemId) _
-                .ForeignKey("dbo.LocationTable", Function(t) t.SensorName) _
-                .Index(Function(t) t.SensorName)
-            
+                .ForeignKey("dbo.LocationTable", Function(t) t.Place) _
+                .Index(Function(t) t.Place)
+
         End Sub
-        
+
         Public Overrides Sub Down()
-            DropForeignKey("dbo.AirQualityTable", "SensorName", "dbo.LocationTable")
-            DropIndex("dbo.AirQualityTable", New String() { "SensorName" })
+            DropForeignKey("dbo.AirQualityTable", "Place", "dbo.LocationTable")
+            DropIndex("dbo.AirQualityTable", New String() {"Place"})
             DropTable("dbo.AirQualityTable")
             DropTable("dbo.LocationTable")
         End Sub

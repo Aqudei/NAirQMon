@@ -27,7 +27,7 @@ Partial Public Class SensorDataItem
     Public Property OverrangeExposure As String
 
     <StringLength(32)>
-    Public Property SensorName As String
+    Public Property Place As String
 
     <Key>
     Public Property SensorDataItemId As Integer

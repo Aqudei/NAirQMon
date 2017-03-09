@@ -98,7 +98,7 @@ Public Class MainForm
             .Longitude = LongitudeTextBox.Text
             .Municipality = MunicipalityTextBox.Text
             .Province = ProvinceTextBox.Text
-            .SensorName = ShortNameTextBox.Text
+            .Place = ShortNameTextBox.Text
         End With
         Using ctx = New AirQContext
             ctx.Locations.Add(newLoc)
@@ -134,7 +134,11 @@ Public Class MainForm
     End Sub
 
     Sub LoadAccount()
+        Using ctx = New AirQContext
+            AccountManager1.DataBindings.Clear()
 
+
+        End Using
     End Sub
 
     Private Sub SaveLocationButton_Click(sender As Object, e As EventArgs) Handles SaveLocationButton.Click
@@ -145,7 +149,7 @@ Public Class MainForm
             .Longitude = LongitudeTextBox.Text
             .Municipality = MunicipalityTextBox.Text
             .Province = ProvinceTextBox.Text
-            .SensorName = ShortNameTextBox.Text
+            .Place = ShortNameTextBox.Text
         End With
         Using ctx = New AirQContext
             ctx.Locations.Add(newLoc)
@@ -162,11 +166,23 @@ Public Class MainForm
         For Each item As DataGridViewRow In LocationsDataGridView.SelectedRows
             Dim loc = CType(item.DataBoundItem, Location)
             Using ctx = New AirQContext
-                Dim itm = ctx.Locations.Find(loc.SensorName)
+                Dim itm = ctx.Locations.Find(loc.Place)
                 ctx.Locations.Remove(itm)
                 ctx.SaveChanges()
             End Using
             LoadLocations()
         Next
+    End Sub
+
+    Private Sub AccountManager1_Load(sender As Object, e As EventArgs) Handles AccountManager1.Load
+
+    End Sub
+
+    Private Sub SearchMetroButton_Click(sender As Object, e As EventArgs) Handles SearchMetroButton.Click
+
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
     End Sub
 End Class

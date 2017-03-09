@@ -342,6 +342,7 @@
     <Content Include="map_termplate.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\12.jpg" />
     <None Include="Resources\lockt.gif" />
     <None Include="Resources\lock1.png" />
     <None Include="Resources\lock.png" />

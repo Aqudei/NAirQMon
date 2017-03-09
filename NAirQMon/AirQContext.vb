@@ -28,13 +28,13 @@ Partial Public Class AirQContext
             .IsFixedLength()
 
         modelBuilder.Entity(Of SensorDataItem)() _
-            .Property(Function(e) e.SensorName) _
+            .Property(Function(e) e.Place) _
             .IsFixedLength()
 
         modelBuilder.Entity(Of Location)().HasMany(Function(e) e.SensorDataItems).WithOptional()
 
         modelBuilder.Entity(Of Location)() _
-            .Property(Function(e) e.SensorName) _
+            .Property(Function(e) e.Place) _
             .IsFixedLength()
 
         modelBuilder.Entity(Of UserAccount)().HasKey(Function(k) k.UserAccounId) _

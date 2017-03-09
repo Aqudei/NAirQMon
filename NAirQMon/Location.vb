@@ -23,7 +23,7 @@ Partial Public Class Location
 
     <Key>
     <StringLength(32)>
-    Public Property SensorName As String
+    Public Property Place As String
 
     <JsonIgnore>
     <System.ComponentModel.Browsable(False)>
