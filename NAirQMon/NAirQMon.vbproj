@@ -127,66 +127,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MapFiller.vb" />
-    <Compile Include="Migrations\201702240759587_initial.Designer.vb">
-      <DependentUpon>201702240759587_initial.vb</DependentUpon>
+    <Compile Include="Migrations\201703090953225_Initial.Designer.vb">
+      <DependentUpon>201703090953225_Initial.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702240759587_initial.vb" />
-    <Compile Include="Migrations\201702240814496_fk added.Designer.vb">
-      <DependentUpon>201702240814496_fk added.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702240814496_fk added.vb" />
-    <Compile Include="Migrations\201702240835443_constrainst.Designer.vb">
-      <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702240835443_constrainst.vb" />
-    <Compile Include="Migrations\201702270350337_added description.Designer.vb">
-      <DependentUpon>201702270350337_added description.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702270350337_added description.vb" />
-    <Compile Include="Migrations\201702270351294_remove description.Designer.vb">
-      <DependentUpon>201702270351294_remove description.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702270351294_remove description.vb" />
-    <Compile Include="Migrations\201702270358306_added fields to Location.Designer.vb">
-      <DependentUpon>201702270358306_added fields to Location.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702270358306_added fields to Location.vb" />
-    <Compile Include="Migrations\201702270410550_remove location-label.Designer.vb">
-      <DependentUpon>201702270410550_remove location-label.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702270410550_remove location-label.vb" />
-    <Compile Include="Migrations\201702272158398_ewan.Designer.vb">
-      <DependentUpon>201702272158398_ewan.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702272158398_ewan.vb" />
-    <Compile Include="Migrations\201702272203392_added user accounts.Designer.vb">
-      <DependentUpon>201702272203392_added user accounts.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702272203392_added user accounts.vb" />
-    <Compile Include="Migrations\201702272212558_to userpass.Designer.vb">
-      <DependentUpon>201702272212558_to userpass.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702272212558_to userpass.vb" />
-    <Compile Include="Migrations\201703010037302_added complete account.Designer.vb">
-      <DependentUpon>201703010037302_added complete account.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703010037302_added complete account.vb" />
-    <Compile Include="Migrations\201703010039161_fix middle to middleName.Designer.vb">
-      <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703010039161_fix middle to middleName.vb" />
-    <Compile Include="Migrations\201703010244234_addedUserStatus.Designer.vb">
-      <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703010244234_addedUserStatus.vb" />
-    <Compile Include="Migrations\201703010533474_plsFix.Designer.vb">
-      <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703010533474_plsFix.vb" />
-    <Compile Include="Migrations\201703010712344_morepa.Designer.vb">
-      <DependentUpon>201703010712344_morepa.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703010712344_morepa.vb" />
+    <Compile Include="Migrations\201703090953225_Initial.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingForm.Designer.vb">
       <DependentUpon>ReportingForm.vb</DependentUpon>
@@ -244,6 +188,12 @@
     <Compile Include="TabPages\AccountManager.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="TabPages\LocationManager.Designer.vb">
+      <DependentUpon>LocationManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TabPages\LocationManager.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UniqueReadingsEQComparer.vb" />
     <Compile Include="UserAccount.vb" />
   </ItemGroup>
@@ -261,50 +211,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702240759587_initial.resx">
-      <DependentUpon>201702240759587_initial.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702240814496_fk added.resx">
-      <DependentUpon>201702240814496_fk added.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702240835443_constrainst.resx">
-      <DependentUpon>201702240835443_constrainst.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702270350337_added description.resx">
-      <DependentUpon>201702270350337_added description.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702270351294_remove description.resx">
-      <DependentUpon>201702270351294_remove description.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702270358306_added fields to Location.resx">
-      <DependentUpon>201702270358306_added fields to Location.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702270410550_remove location-label.resx">
-      <DependentUpon>201702270410550_remove location-label.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702272158398_ewan.resx">
-      <DependentUpon>201702272158398_ewan.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702272203392_added user accounts.resx">
-      <DependentUpon>201702272203392_added user accounts.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702272212558_to userpass.resx">
-      <DependentUpon>201702272212558_to userpass.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703010037302_added complete account.resx">
-      <DependentUpon>201703010037302_added complete account.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703010039161_fix middle to middleName.resx">
-      <DependentUpon>201703010039161_fix middle to middleName.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703010244234_addedUserStatus.resx">
-      <DependentUpon>201703010244234_addedUserStatus.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703010533474_plsFix.resx">
-      <DependentUpon>201703010533474_plsFix.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703010712344_morepa.resx">
-      <DependentUpon>201703010712344_morepa.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703090953225_Initial.resx">
+      <DependentUpon>201703090953225_Initial.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -320,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TabPages\AccountManager.resx">
       <DependentUpon>AccountManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabPages\LocationManager.resx">
+      <DependentUpon>LocationManager.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

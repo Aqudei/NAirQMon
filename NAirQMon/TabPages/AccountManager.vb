@@ -65,4 +65,8 @@
     Private Sub AccountsMetroGrid_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles AccountsMetroGrid.UserDeletingRow
         DeleteAccount(e.Row.DataBoundItem)
     End Sub
+
+    Private Sub AccountsMetroGrid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles AccountsMetroGrid.CellContentClick
+
+    End Sub
 End Class

@@ -353,9 +353,9 @@ Partial Class MainForm
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(17, 45)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(98, 17)
+        Me.Label2.Size = New System.Drawing.Size(47, 17)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Sensor Name:"
+        Me.Label2.Text = "Place:"
         '
         'Label1
         '
