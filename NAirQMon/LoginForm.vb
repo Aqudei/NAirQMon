@@ -7,9 +7,8 @@
     End Sub
 
     Sub SuccessLogin()
-        IsLoggedin = True
-        Hide()
         MainForm.Show()
+        Close()
     End Sub
 
     Sub FailedLogin(Optional msg As String = "Error Username or Password")
@@ -20,15 +19,19 @@
             End If
         Next
 
-        MsgBox(msg)
+        ShowErro(msg)
+    End Sub
+
+    Private Sub ShowErro(msg As String)
+        MessageMetroLabel.Text = msg
     End Sub
 
     Private Sub DoLogin()
-        Dim msg As String = ""
 
-        If UsernameTextBox.Text = "1" And PasswordTextBox.Text = "1" Then
+        Dim msg As String = ""
+        If UsernameMetroTextBox.Text = "1" And PasswordMetroTextBox.Text = "1" Then
             SuccessLogin()
-        ElseIf TryAuthenticate(UsernameTextBox.Text, PasswordTextBox.Text, msg) = True Then
+        ElseIf TryAuthenticate(UsernameMetroTextBox.Text, PasswordMetroTextBox.Text, msg) = True Then
             SuccessLogin()
         Else
             FailedLogin(msg)
@@ -56,42 +59,26 @@
         End Using
     End Function
 
-    Private Sub LoginForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If IsLoggedin = False Then
-            End
-        End If
-    End Sub
-
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
-        IsLoggedin = False
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        LoginAsGuest()
-    End Sub
-
     Sub LoginAsGuest()
-        IsGuest = True
-        IsLoggedin = True
-        MainForm.Show()
-        DialogResult = DialogResult.OK
+        Dim mainForm As New MainForm
+        mainForm.isGuest = True
+        mainForm.Show()
+        Me.Close()
     End Sub
 
-    Private Sub UsernameTextBox_MouseClick(sender As Object, e As MouseEventArgs) Handles UsernameTextBox.MouseClick
-        UsernameTextBox.Clear()
-    End Sub
-
-    Private Sub PasswordTextBox_MouseClick(sender As Object, e As MouseEventArgs) Handles PasswordTextBox.MouseClick
-        PasswordTextBox.Clear()
-    End Sub
-
-    Private Sub MetroButton1_Click(sender As Object, e As EventArgs) Handles LoginMetroButton.Click
+    Private Sub LoginMetroLink_Click(sender As Object, e As EventArgs) Handles LoginMetroLink.Click
         DoLogin()
     End Sub
 
-    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles GuestLoginMetroButton.Click
-        LoginAsGuest()
+    Private Sub PasswordMetroTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles UsernameMetroTextBox.KeyPress, PasswordMetroTextBox.KeyPress
+        MessageMetroLabel.Text = ""
     End Sub
 
+    Private Sub ExitApp_Click(sender As Object, e As EventArgs) Handles MetroLink2.Click
+        End
+    End Sub
 
+    Private Sub GuestLoginMetroLink_Click(sender As Object, e As EventArgs) Handles GuestLoginMetroLink.Click
+        LoginAsGuest()
+    End Sub
 End Class

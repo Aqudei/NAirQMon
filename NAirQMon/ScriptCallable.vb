@@ -2,9 +2,9 @@
 Public Class ScriptCallable
 
     Public Sub MarkerClicked(marker As Object)
-        Using Form As New ReportingForm(marker)
-            Form.ShowDialog()
-        End Using
+        'Using Form As New ReportingForm(marker)
+        '    Form.ShowDialog()
+        'End Using
     End Sub
 
     Public Function GetMarkers() As String

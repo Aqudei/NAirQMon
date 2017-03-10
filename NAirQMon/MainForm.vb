@@ -1,47 +1,38 @@
 ﻿Imports System.IO
-
+Imports GMap.NET
 
 Public Class MainForm
 
-
+    Property isGuest As Boolean = False
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Hide()
-        ShowLogin()
-        Init()
+        If DesignMode = False Then
+            Init()
+        End If
     End Sub
 
     Private Sub Init()
-        BeginInvoke(
-            Sub(arg As Form)
-                'Start loading map image
-                WebBrowser1.ScriptErrorsSuppressed = True
-                WebBrowser1.ObjectForScripting = New ScriptCallable
+        LoadLocations()
+        LoadAccount()
+        LoadSensorData()
 
-
-                LoadSensorData()
-                LoadLocations()
-            End Sub, Me)
+        If isGuest Then
+            BeginInvoke(Sub(arg As Form)
+                            If isGuest Then
+                                For Each p As TabPage In TabControl1.TabPages
+                                    If p Is MonitoringTabPage <> True Then
+                                        TabControl1.TabPages.Remove(p)
+                                    End If
+                                Next
+                            End If
+                        End Sub, Me)
+        End If
     End Sub
 
     'This will be called by the javascript providing the sensorname
     ' of the clicked marker
     Public Sub MarkerClicked(sensorName As String)
         MsgBox("")
-    End Sub
-
-    Sub ShowLogin()
-        Dim loginForm = New LoginForm
-        BeginInvoke(Sub(arg As Form)
-                        loginForm.ShowDialog(arg)
-                        If loginForm.IsGuest Then
-                            For Each p As TabPage In TabControl1.TabPages
-                                If p.Text.ToLower.Contains("overview") <> True Then
-                                    TabControl1.TabPages.Remove(p)
-                                End If
-                            Next
-                        End If
-                    End Sub, Me)
     End Sub
 
     Private Sub ImportDataLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ImportDataLinkLabel.LinkClicked
@@ -78,11 +69,7 @@ Public Class MainForm
     End Sub
 
     Sub LoadMap()
-        BeginInvoke(Sub()
-                        Dim filledMap = MapFiller.FillMap(Path.Combine(Application.StartupPath, "map_termplate.html"))
-                        WebBrowser1.Url = New Uri(filledMap)
-                        WebBrowser1.Refresh()
-                    End Sub)
+
     End Sub
 
     Private Sub TabControl1_TabIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.TabIndexChanged
@@ -184,5 +171,9 @@ Public Class MainForm
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
 
+    End Sub
+
+    Private Sub MainForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        End
     End Sub
 End Class

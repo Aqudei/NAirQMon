@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class LoginForm
-    Inherits System.Windows.Forms.Form
+    Inherits MetroFramework.Forms.MetroForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -22,170 +22,147 @@ Partial Class LoginForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.UsernameTextBox = New System.Windows.Forms.TextBox()
-        Me.PasswordTextBox = New System.Windows.Forms.TextBox()
-        Me.CancelButton = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.LoginMetroButton = New MetroFramework.Controls.MetroButton()
-        Me.GuestLoginMetroButton = New MetroFramework.Controls.MetroButton()
-        Me.Panel1.SuspendLayout()
+        Me.LoginMetroLink = New MetroFramework.Controls.MetroLink()
+        Me.UsernameMetroTextBox = New MetroFramework.Controls.MetroTextBox()
+        Me.PasswordMetroTextBox = New MetroFramework.Controls.MetroTextBox()
+        Me.MetroLink2 = New MetroFramework.Controls.MetroLink()
+        Me.MessageMetroLabel = New MetroFramework.Controls.MetroLabel()
+        Me.GuestLoginMetroLink = New MetroFramework.Controls.MetroLink()
         Me.SuspendLayout()
         '
-        'UsernameTextBox
+        'LoginMetroLink
         '
-        Me.UsernameTextBox.BackColor = System.Drawing.Color.White
-        Me.UsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.UsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.UsernameTextBox.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UsernameTextBox.ForeColor = System.Drawing.Color.Gray
-        Me.UsernameTextBox.Location = New System.Drawing.Point(104, 150)
-        Me.UsernameTextBox.Multiline = True
-        Me.UsernameTextBox.Name = "UsernameTextBox"
-        Me.UsernameTextBox.Size = New System.Drawing.Size(249, 37)
-        Me.UsernameTextBox.TabIndex = 0
-        Me.UsernameTextBox.Text = "Username"
+        Me.LoginMetroLink.FontSize = MetroFramework.MetroLinkSize.Tall
+        Me.LoginMetroLink.Location = New System.Drawing.Point(159, 216)
+        Me.LoginMetroLink.Name = "LoginMetroLink"
+        Me.LoginMetroLink.Size = New System.Drawing.Size(95, 54)
+        Me.LoginMetroLink.TabIndex = 0
+        Me.LoginMetroLink.Text = "Login"
+        Me.LoginMetroLink.UseSelectable = True
         '
-        'PasswordTextBox
+        'UsernameMetroTextBox
         '
-        Me.PasswordTextBox.BackColor = System.Drawing.Color.White
-        Me.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.PasswordTextBox.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PasswordTextBox.ForeColor = System.Drawing.Color.Gray
-        Me.PasswordTextBox.Location = New System.Drawing.Point(103, 227)
-        Me.PasswordTextBox.Multiline = True
-        Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.Size = New System.Drawing.Size(249, 37)
-        Me.PasswordTextBox.TabIndex = 1
-        Me.PasswordTextBox.Text = "Password"
-        Me.PasswordTextBox.UseSystemPasswordChar = True
         '
-        'CancelButton
         '
-        Me.CancelButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.CancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.ForeColor = System.Drawing.Color.White
-        Me.CancelButton.Location = New System.Drawing.Point(369, 12)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(75, 33)
-        Me.CancelButton.TabIndex = 5
-        Me.CancelButton.Text = "x"
-        Me.CancelButton.UseVisualStyleBackColor = False
         '
-        'Panel1
+        Me.UsernameMetroTextBox.CustomButton.Image = Nothing
+        Me.UsernameMetroTextBox.CustomButton.Location = New System.Drawing.Point(364, 2)
+        Me.UsernameMetroTextBox.CustomButton.Name = ""
+        Me.UsernameMetroTextBox.CustomButton.Size = New System.Drawing.Size(35, 35)
+        Me.UsernameMetroTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.UsernameMetroTextBox.CustomButton.TabIndex = 1
+        Me.UsernameMetroTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.UsernameMetroTextBox.CustomButton.UseSelectable = True
+        Me.UsernameMetroTextBox.CustomButton.Visible = False
+        Me.UsernameMetroTextBox.FontSize = MetroFramework.MetroTextBoxSize.Tall
+        Me.UsernameMetroTextBox.FontWeight = MetroFramework.MetroTextBoxWeight.Bold
+        Me.UsernameMetroTextBox.Lines = New String(-1) {}
+        Me.UsernameMetroTextBox.Location = New System.Drawing.Point(37, 104)
+        Me.UsernameMetroTextBox.MaxLength = 32767
+        Me.UsernameMetroTextBox.Name = "UsernameMetroTextBox"
+        Me.UsernameMetroTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.UsernameMetroTextBox.PromptText = "Enter username"
+        Me.UsernameMetroTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.UsernameMetroTextBox.SelectedText = ""
+        Me.UsernameMetroTextBox.SelectionLength = 0
+        Me.UsernameMetroTextBox.SelectionStart = 0
+        Me.UsernameMetroTextBox.ShortcutsEnabled = True
+        Me.UsernameMetroTextBox.Size = New System.Drawing.Size(402, 40)
+        Me.UsernameMetroTextBox.TabIndex = 1
+        Me.UsernameMetroTextBox.UseSelectable = True
+        Me.UsernameMetroTextBox.WaterMark = "Enter username"
+        Me.UsernameMetroTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.UsernameMetroTextBox.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.CancelButton)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(474, 54)
-        Me.Panel1.TabIndex = 7
+        'PasswordMetroTextBox
         '
-        'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 384)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(474, 43)
-        Me.Panel2.TabIndex = 8
         '
-        'ShapeContainer1
         '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape2, Me.RectangleShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(474, 427)
-        Me.ShapeContainer1.TabIndex = 9
-        Me.ShapeContainer1.TabStop = False
+        Me.PasswordMetroTextBox.CustomButton.Image = Nothing
+        Me.PasswordMetroTextBox.CustomButton.Location = New System.Drawing.Point(364, 2)
+        Me.PasswordMetroTextBox.CustomButton.Name = ""
+        Me.PasswordMetroTextBox.CustomButton.Size = New System.Drawing.Size(35, 35)
+        Me.PasswordMetroTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.PasswordMetroTextBox.CustomButton.TabIndex = 1
+        Me.PasswordMetroTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.PasswordMetroTextBox.CustomButton.UseSelectable = True
+        Me.PasswordMetroTextBox.CustomButton.Visible = False
+        Me.PasswordMetroTextBox.FontSize = MetroFramework.MetroTextBoxSize.Tall
+        Me.PasswordMetroTextBox.FontWeight = MetroFramework.MetroTextBoxWeight.Bold
+        Me.PasswordMetroTextBox.Lines = New String(-1) {}
+        Me.PasswordMetroTextBox.Location = New System.Drawing.Point(37, 160)
+        Me.PasswordMetroTextBox.MaxLength = 32767
+        Me.PasswordMetroTextBox.Name = "PasswordMetroTextBox"
+        Me.PasswordMetroTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.PasswordMetroTextBox.PromptText = "Enter Password"
+        Me.PasswordMetroTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.PasswordMetroTextBox.SelectedText = ""
+        Me.PasswordMetroTextBox.SelectionLength = 0
+        Me.PasswordMetroTextBox.SelectionStart = 0
+        Me.PasswordMetroTextBox.ShortcutsEnabled = True
+        Me.PasswordMetroTextBox.Size = New System.Drawing.Size(402, 40)
+        Me.PasswordMetroTextBox.TabIndex = 2
+        Me.PasswordMetroTextBox.UseSelectable = True
+        Me.PasswordMetroTextBox.WaterMark = "Enter Password"
+        Me.PasswordMetroTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.PasswordMetroTextBox.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
-        'RectangleShape2
+        'MetroLink2
         '
-        Me.RectangleShape2.BackColor = System.Drawing.Color.White
-        Me.RectangleShape2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.RectangleShape2.BorderColor = System.Drawing.Color.White
-        Me.RectangleShape2.CornerRadius = 5
-        Me.RectangleShape2.Location = New System.Drawing.Point(103, 211)
-        Me.RectangleShape2.Name = "RectangleShape2"
-        Me.RectangleShape2.Size = New System.Drawing.Size(250, 58)
+        Me.MetroLink2.FontSize = MetroFramework.MetroLinkSize.Tall
+        Me.MetroLink2.Location = New System.Drawing.Point(36, 216)
+        Me.MetroLink2.Name = "MetroLink2"
+        Me.MetroLink2.Size = New System.Drawing.Size(95, 54)
+        Me.MetroLink2.TabIndex = 3
+        Me.MetroLink2.Text = "Exit"
+        Me.MetroLink2.UseSelectable = True
         '
-        'RectangleShape1
+        'MessageMetroLabel
         '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.White
-        Me.RectangleShape1.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.White
-        Me.RectangleShape1.CornerRadius = 5
-        Me.RectangleShape1.Location = New System.Drawing.Point(102, 137)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(250, 58)
+        Me.MessageMetroLabel.FontSize = MetroFramework.MetroLabelSize.Tall
+        Me.MessageMetroLabel.ForeColor = System.Drawing.Color.DarkRed
+        Me.MessageMetroLabel.Location = New System.Drawing.Point(-2, 273)
+        Me.MessageMetroLabel.Name = "MessageMetroLabel"
+        Me.MessageMetroLabel.Size = New System.Drawing.Size(476, 84)
+        Me.MessageMetroLabel.TabIndex = 4
+        Me.MessageMetroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.MessageMetroLabel.UseCustomForeColor = True
         '
-        'LoginMetroButton
+        'GuestLoginMetroLink
         '
-        Me.LoginMetroButton.FontSize = MetroFramework.MetroButtonSize.Tall
-        Me.LoginMetroButton.Location = New System.Drawing.Point(169, 289)
-        Me.LoginMetroButton.Name = "LoginMetroButton"
-        Me.LoginMetroButton.Size = New System.Drawing.Size(145, 32)
-        Me.LoginMetroButton.Style = MetroFramework.MetroColorStyle.Red
-        Me.LoginMetroButton.TabIndex = 10
-        Me.LoginMetroButton.Text = "Login"
-        Me.LoginMetroButton.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.LoginMetroButton.UseSelectable = True
-        '
-        'GuestLoginMetroButton
-        '
-        Me.GuestLoginMetroButton.FontSize = MetroFramework.MetroButtonSize.Tall
-        Me.GuestLoginMetroButton.Location = New System.Drawing.Point(169, 328)
-        Me.GuestLoginMetroButton.Name = "GuestLoginMetroButton"
-        Me.GuestLoginMetroButton.Size = New System.Drawing.Size(145, 32)
-        Me.GuestLoginMetroButton.Style = MetroFramework.MetroColorStyle.Red
-        Me.GuestLoginMetroButton.TabIndex = 11
-        Me.GuestLoginMetroButton.Text = "Login as Guest"
-        Me.GuestLoginMetroButton.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.GuestLoginMetroButton.UseSelectable = True
+        Me.GuestLoginMetroLink.FontSize = MetroFramework.MetroLinkSize.Tall
+        Me.GuestLoginMetroLink.Location = New System.Drawing.Point(291, 216)
+        Me.GuestLoginMetroLink.Name = "GuestLoginMetroLink"
+        Me.GuestLoginMetroLink.Size = New System.Drawing.Size(148, 54)
+        Me.GuestLoginMetroLink.TabIndex = 5
+        Me.GuestLoginMetroLink.Text = "Login As Guest"
+        Me.GuestLoginMetroLink.UseSelectable = True
         '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BackgroundImage = Global.NAirQMon.My.Resources.Resources._12
-        Me.ClientSize = New System.Drawing.Size(474, 427)
+        Me.ClientSize = New System.Drawing.Size(474, 389)
         Me.ControlBox = False
-        Me.Controls.Add(Me.GuestLoginMetroButton)
-        Me.Controls.Add(Me.LoginMetroButton)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.PasswordTextBox)
-        Me.Controls.Add(Me.UsernameTextBox)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ShapeContainer1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Controls.Add(Me.GuestLoginMetroLink)
+        Me.Controls.Add(Me.MessageMetroLabel)
+        Me.Controls.Add(Me.MetroLink2)
+        Me.Controls.Add(Me.PasswordMetroTextBox)
+        Me.Controls.Add(Me.UsernameMetroTextBox)
+        Me.Controls.Add(Me.LoginMetroLink)
         Me.Name = "LoginForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "LoginForm"
-        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents UsernameTextBox As TextBox
-    Friend WithEvents PasswordTextBox As TextBox
-    Friend WithEvents CancelButton As Button
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
-    Friend WithEvents RectangleShape2 As PowerPacks.RectangleShape
-    Friend WithEvents RectangleShape1 As PowerPacks.RectangleShape
-    Friend WithEvents LoginMetroButton As MetroFramework.Controls.MetroButton
-    Friend WithEvents GuestLoginMetroButton As MetroFramework.Controls.MetroButton
+    Friend WithEvents LoginMetroLink As MetroFramework.Controls.MetroLink
+    Friend WithEvents UsernameMetroTextBox As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents PasswordMetroTextBox As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents MetroLink2 As MetroFramework.Controls.MetroLink
+    Friend WithEvents MessageMetroLabel As MetroFramework.Controls.MetroLabel
+    Friend WithEvents GuestLoginMetroLink As MetroFramework.Controls.MetroLink
 End Class
