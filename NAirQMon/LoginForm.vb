@@ -1,4 +1,9 @@
-﻿Public Class LoginForm
+﻿Imports WinFormAnimation
+Imports WinFormAnimation.Animator
+Imports System.Threading
+Imports System.Windows.Forms
+
+Public Class LoginForm
     Public Property IsLoggedin As Boolean = False
     Public Property IsGuest As Boolean = False
 
@@ -24,6 +29,21 @@
 
     Private Sub ShowErro(msg As String)
         MessageMetroLabel.Text = msg
+        AnimateForm()
+    End Sub
+
+    Private Sub AnimateForm()
+        Dim orig = Me.Location
+
+        Dim paths = New List(Of Path2D)
+        paths.AddRange(New Path2D(orig.X, orig.X + 10, orig.Y, orig.Y + 10, 60) _
+            .ContinueTo(orig.ToFloat2D, 60))
+        paths.AddRange(New Path2D(orig.X, orig.X + 10, orig.Y, orig.Y + 10, 60) _
+            .ContinueTo(orig.ToFloat2D, 60))
+
+        Dim animator = New Animator2D(paths.ToArray)
+
+        animator.Play(Me, Animator2D.KnownProperties.Location)
     End Sub
 
     Private Sub DoLogin()
