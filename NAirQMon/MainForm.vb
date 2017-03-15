@@ -77,22 +77,7 @@ Public Class MainForm
         End If
     End Sub
 
-    Private Sub SaveButton_Click(sender As Object, e As EventArgs)
-        Dim newLoc As New Location
-        With newLoc
-            .Barangay = BarangayTextBox.Text
-            .Latitude = LatitudeTextBox.Text
-            .Longitude = LongitudeTextBox.Text
-            .Municipality = MunicipalityTextBox.Text
-            .Province = ProvinceTextBox.Text
-            .Place = ShortNameTextBox.Text
-        End With
-        Using ctx = New AirQContext
-            ctx.Locations.Add(newLoc)
-            ctx.SaveChanges()
-        End Using
-        LoadLocations()
-    End Sub
+
 
 
 
@@ -106,19 +91,6 @@ Public Class MainForm
 
 
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles SaveAccountButton.Click
-        Using ctx As New AirQContext
-            Dim newAccount = New UserAccount
-            newAccount.UserPass = PasswordCopyTextBox.Text
-            newAccount.Username = UsernameTextBox.Text
-            newAccount.FirstName = FirstNameTextBox.Text
-            newAccount.MiddleName = MiddleNameTextBox.Text
-            newAccount.LastName = LastNameTextBox.Text
-            ctx.UserAccounts.Add(newAccount)
-            ctx.SaveChanges()
-        End Using
-        LoadAccount()
-    End Sub
 
     Sub LoadAccount()
         Using ctx = New AirQContext
@@ -128,24 +100,9 @@ Public Class MainForm
         End Using
     End Sub
 
-    Private Sub SaveLocationButton_Click(sender As Object, e As EventArgs) Handles SaveLocationButton.Click
-        Dim newLoc As New Location
-        With newLoc
-            .Barangay = BarangayTextBox.Text
-            .Latitude = LatitudeTextBox.Text
-            .Longitude = LongitudeTextBox.Text
-            .Municipality = MunicipalityTextBox.Text
-            .Province = ProvinceTextBox.Text
-            .Place = ShortNameTextBox.Text
-        End With
-        Using ctx = New AirQContext
-            ctx.Locations.Add(newLoc)
-            ctx.SaveChanges()
-        End Using
-        LoadLocations()
-    End Sub
 
-    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
+
+    Private Sub MetroButton2_Click(sender As Object, e As EventArgs)
         If LocationsDataGridView.SelectedRows.Count <= 0 Then
             MsgBox("Nothing is selected", MsgBoxStyle.Exclamation, "Error")
             Return
@@ -161,19 +118,5 @@ Public Class MainForm
         Next
     End Sub
 
-    Private Sub AccountManager1_Load(sender As Object, e As EventArgs) Handles AccountManager1.Load
 
-    End Sub
-
-    Private Sub SearchMetroButton_Click(sender As Object, e As EventArgs) Handles SearchMetroButton.Click
-
-    End Sub
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-
-    End Sub
-
-    Private Sub MainForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        End
-    End Sub
 End Class

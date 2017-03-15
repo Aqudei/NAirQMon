@@ -51,6 +51,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -116,15 +119,28 @@
   <ItemGroup>
     <Compile Include="AirQContext.vb" />
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BarChartReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarChartReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomControls\TransparentPB.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataAccessObjects\AccountDao.vb" />
     <Compile Include="MapFiller.vb" />
+    <Compile Include="MetroGrid.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Migrations\201703090953225_Initial.Designer.vb">
       <DependentUpon>201703090953225_Initial.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703090953225_Initial.vb" />
+    <Compile Include="Migrations\201703150406115_error.Designer.vb">
+      <DependentUpon>201703150406115_error.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703150406115_error.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ScriptCallable.vb" />
     <Compile Include="SensorDataItem.vb" />
@@ -186,6 +202,10 @@
     <Compile Include="UserAccount.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BarChartReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BarChartReport.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportSensorDataForm.resx">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703090953225_Initial.resx">
       <DependentUpon>201703090953225_Initial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703150406115_error.resx">
+      <DependentUpon>201703150406115_error.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -219,6 +242,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Location1.datasource" />
+    <None Include="My Project\DataSources\LocationManager.datasource" />
     <None Include="My Project\DataSources\UserAccount.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

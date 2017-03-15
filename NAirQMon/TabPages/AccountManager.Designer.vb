@@ -29,7 +29,6 @@ Partial Class AccountManager
         Me.AccountsMetroGrid = New MetroFramework.Controls.MetroGrid()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.MetroLink1 = New MetroFramework.Controls.MetroLink()
-        Me.MetroLink2 = New MetroFramework.Controls.MetroLink()
         Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -93,7 +92,6 @@ Partial Class AccountManager
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.MetroLink1)
-        Me.FlowLayoutPanel1.Controls.Add(Me.MetroLink2)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 273)
@@ -109,15 +107,6 @@ Partial Class AccountManager
         Me.MetroLink1.TabIndex = 0
         Me.MetroLink1.Text = "Save Changes"
         Me.MetroLink1.UseSelectable = True
-        '
-        'MetroLink2
-        '
-        Me.MetroLink2.Location = New System.Drawing.Point(228, 3)
-        Me.MetroLink2.Name = "MetroLink2"
-        Me.MetroLink2.Size = New System.Drawing.Size(75, 23)
-        Me.MetroLink2.TabIndex = 1
-        Me.MetroLink2.Text = "Delete"
-        Me.MetroLink2.UseSelectable = True
         '
         'UsernameDataGridViewTextBoxColumn
         '
@@ -178,7 +167,6 @@ Partial Class AccountManager
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents UserAccountBindingSource As BindingSource
     Friend WithEvents MetroLink1 As MetroFramework.Controls.MetroLink
-    Friend WithEvents MetroLink2 As MetroFramework.Controls.MetroLink
     Friend WithEvents UsernameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UserPassDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FirstNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
