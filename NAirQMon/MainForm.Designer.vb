@@ -36,6 +36,7 @@ Partial Class MainForm
         Me.TabControl1 = New MetroFramework.Controls.MetroTabControl()
         Me.LocationMgmtTabPage = New MetroFramework.Controls.MetroTabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.MetroGrid1 = New NAirQMon.MetroGrid()
         Me.LocationsDataGridView = New MetroFramework.Controls.MetroGrid()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataMgmtTabPage = New MetroFramework.Controls.MetroTabPage()
@@ -45,12 +46,11 @@ Partial Class MainForm
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ImportDataLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.MonitoringTabPage = New MetroFramework.Controls.MetroTabPage()
+        Me.MonitoringPage1 = New NAirQMon.MonitoringPage()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.AccountManager1 = New NAirQMon.AccountManager()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
-        Me.MetroGrid1 = New NAirQMon.MetroGrid()
-        Me.MonitoringPage1 = New NAirQMon.MonitoringPage()
-        Me.AccountManager1 = New NAirQMon.AccountManager()
         Me.LocationManagerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LocationManagerBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1.SuspendLayout()
@@ -76,7 +76,7 @@ Partial Class MainForm
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(20, 60)
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.SelectedIndex = 2
         Me.TabControl1.Size = New System.Drawing.Size(744, 630)
         Me.TabControl1.TabIndex = 0
         Me.TabControl1.UseSelectable = True
@@ -108,6 +108,15 @@ Partial Class MainForm
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(716, 568)
         Me.Panel3.TabIndex = 1
+        '
+        'MetroGrid1
+        '
+        Me.MetroGrid1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MetroGrid1.Location = New System.Drawing.Point(0, 20)
+        Me.MetroGrid1.Name = "MetroGrid1"
+        Me.MetroGrid1.Size = New System.Drawing.Size(716, 548)
+        Me.MetroGrid1.TabIndex = 6
+        Me.MetroGrid1.UseSelectable = True
         '
         'LocationsDataGridView
         '
@@ -305,6 +314,15 @@ Partial Class MainForm
         Me.MonitoringTabPage.VerticalScrollbarHighlightOnWheel = False
         Me.MonitoringTabPage.VerticalScrollbarSize = 10
         '
+        'MonitoringPage1
+        '
+        Me.MonitoringPage1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MonitoringPage1.Location = New System.Drawing.Point(10, 10)
+        Me.MonitoringPage1.Name = "MonitoringPage1"
+        Me.MonitoringPage1.Size = New System.Drawing.Size(716, 568)
+        Me.MonitoringPage1.TabIndex = 2
+        Me.MonitoringPage1.UseSelectable = True
+        '
         'TabPage5
         '
         Me.TabPage5.Controls.Add(Me.AccountManager1)
@@ -315,6 +333,15 @@ Partial Class MainForm
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Account Management"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'AccountManager1
+        '
+        Me.AccountManager1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AccountManager1.Location = New System.Drawing.Point(0, 20)
+        Me.AccountManager1.Name = "AccountManager1"
+        Me.AccountManager1.Size = New System.Drawing.Size(736, 568)
+        Me.AccountManager1.TabIndex = 4
+        Me.AccountManager1.UseSelectable = True
         '
         'Label20
         '
@@ -337,33 +364,6 @@ Partial Class MainForm
         Me.MetroButton1.TabIndex = 1
         Me.MetroButton1.Text = "Log out"
         Me.MetroButton1.UseSelectable = True
-        '
-        'MetroGrid1
-        '
-        Me.MetroGrid1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MetroGrid1.Location = New System.Drawing.Point(0, 20)
-        Me.MetroGrid1.Name = "MetroGrid1"
-        Me.MetroGrid1.Size = New System.Drawing.Size(716, 548)
-        Me.MetroGrid1.TabIndex = 6
-        Me.MetroGrid1.UseSelectable = True
-        '
-        'MonitoringPage1
-        '
-        Me.MonitoringPage1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MonitoringPage1.Location = New System.Drawing.Point(10, 10)
-        Me.MonitoringPage1.Name = "MonitoringPage1"
-        Me.MonitoringPage1.Size = New System.Drawing.Size(716, 568)
-        Me.MonitoringPage1.TabIndex = 2
-        Me.MonitoringPage1.UseSelectable = True
-        '
-        'AccountManager1
-        '
-        Me.AccountManager1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountManager1.Location = New System.Drawing.Point(0, 20)
-        Me.AccountManager1.Name = "AccountManager1"
-        Me.AccountManager1.Size = New System.Drawing.Size(736, 568)
-        Me.AccountManager1.TabIndex = 4
-        Me.AccountManager1.UseSelectable = True
         '
         'LocationManagerBindingSource
         '

@@ -17,12 +17,19 @@ Public Class MonitoringPage
         TheMap.Position = New PointLatLng(12.5008589, 124.629162)
         TheMap.Overlays.Add(locationMarkers)
         AddHandler TheMap.OnMarkerClick, AddressOf MarkerClicked
+
         LoadMarker()
     End Sub
 
     Private Sub MarkerClicked(item As GMapMarker, e As MouseEventArgs)
         Animate(item)
+        Using Form As New ReportingFormBar
+            Form.ShowDialog()
+        End Using
+
     End Sub
+
+
 
     Private Sub Animate(item As GMapMarker)
         Dim orig = item.LocalPosition
