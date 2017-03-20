@@ -153,6 +153,10 @@
       <DependentUpon>201703200631557_locationChangedId.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703200631557_locationChangedId.vb" />
+    <Compile Include="Migrations\201703200720180_removeSOmeUnusecolumn.Designer.vb">
+      <DependentUpon>201703200720180_removeSOmeUnusecolumn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703200720180_removeSOmeUnusecolumn.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingFormBar.Designer.vb">
       <DependentUpon>ReportingFormBar.vb</DependentUpon>
@@ -240,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703200631557_locationChangedId.resx">
       <DependentUpon>201703200631557_locationChangedId.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200720180_removeSOmeUnusecolumn.resx">
+      <DependentUpon>201703200720180_removeSOmeUnusecolumn.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

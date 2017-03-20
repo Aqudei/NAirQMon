@@ -144,7 +144,7 @@ Partial Class LoginForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.NAirQMon.My.Resources.Resources._12
-        Me.ClientSize = New System.Drawing.Size(474, 389)
+        Me.ClientSize = New System.Drawing.Size(474, 308)
         Me.ControlBox = False
         Me.Controls.Add(Me.GuestLoginMetroLink)
         Me.Controls.Add(Me.MessageMetroLabel)

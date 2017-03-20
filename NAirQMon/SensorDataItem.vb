@@ -39,11 +39,8 @@ Partial Public Class SensorDataItem
     <StringLength(10)>
     Public Property OverrangeExposure As String
 
-
     <Key>
     Public Property SensorDataItemId As Integer
-
-    Public Overridable Property LocationTable As Location
 
     Public Overloads Overrides Function Equals(obj As Object) As Boolean
         If obj Is Nothing Then Return False
