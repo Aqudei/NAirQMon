@@ -36,7 +36,7 @@ Public Class MonitoringPage
         locationMarkers.Clear()
 
         Using ctx As New AirQContext
-            Dim locs = ctx.Locations.ToList
+            Dim locs = ctx.Locations.Where(Function(l) l.IsActive = True).ToList
 
             For Each _loc In locs
 

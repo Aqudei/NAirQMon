@@ -30,4 +30,5 @@ Partial Public Class Location
 
 
     Property LocationId As Long
+    Property IsActive As Boolean = True
 End Class

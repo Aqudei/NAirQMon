@@ -146,6 +146,14 @@
       <DependentUpon>201703200922222_altitudeToInt.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703200922222_altitudeToInt.vb" />
+    <Compile Include="Migrations\201703201417427_isActiveToLocation.Designer.vb">
+      <DependentUpon>201703201417427_isActiveToLocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201417427_isActiveToLocation.vb" />
+    <Compile Include="Migrations\201703201418488_isActiveToLocation2.Designer.vb">
+      <DependentUpon>201703201418488_isActiveToLocation2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201418488_isActiveToLocation2.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingFormBar.Designer.vb">
       <DependentUpon>ReportingFormBar.vb</DependentUpon>
@@ -227,6 +235,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703200922222_altitudeToInt.resx">
       <DependentUpon>201703200922222_altitudeToInt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201417427_isActiveToLocation.resx">
+      <DependentUpon>201703201417427_isActiveToLocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201418488_isActiveToLocation2.resx">
+      <DependentUpon>201703201418488_isActiveToLocation2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

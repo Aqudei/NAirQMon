@@ -29,13 +29,14 @@ Partial Class LocationManager
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.MetroLink1 = New MetroFramework.Controls.MetroLink()
         Me.LocationsMetroGrid = New MetroFramework.Controls.MetroGrid()
-        Me.LocationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LatitudeDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LongitudeDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BarangayDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MunicipalityDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProvinceDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PlaceDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LocationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IsActive = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.FlowLayoutPanel2.SuspendLayout()
         CType(Me.LocationsMetroGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LocationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,7 +79,7 @@ Partial Class LocationManager
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.LocationsMetroGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.LocationsMetroGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LocationsMetroGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LatitudeDataGridViewTextBoxColumn1, Me.LongitudeDataGridViewTextBoxColumn1, Me.BarangayDataGridViewTextBoxColumn1, Me.MunicipalityDataGridViewTextBoxColumn1, Me.ProvinceDataGridViewTextBoxColumn1, Me.PlaceDataGridViewTextBoxColumn1})
+        Me.LocationsMetroGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LatitudeDataGridViewTextBoxColumn1, Me.LongitudeDataGridViewTextBoxColumn1, Me.BarangayDataGridViewTextBoxColumn1, Me.MunicipalityDataGridViewTextBoxColumn1, Me.ProvinceDataGridViewTextBoxColumn1, Me.PlaceDataGridViewTextBoxColumn1, Me.IsActive})
         Me.LocationsMetroGrid.DataSource = Me.LocationBindingSource
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -107,10 +108,6 @@ Partial Class LocationManager
         Me.LocationsMetroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.LocationsMetroGrid.Size = New System.Drawing.Size(741, 253)
         Me.LocationsMetroGrid.TabIndex = 1
-        '
-        'LocationBindingSource
-        '
-        Me.LocationBindingSource.DataSource = GetType(NAirQMon.Location)
         '
         'LatitudeDataGridViewTextBoxColumn1
         '
@@ -148,6 +145,16 @@ Partial Class LocationManager
         Me.PlaceDataGridViewTextBoxColumn1.HeaderText = "Place"
         Me.PlaceDataGridViewTextBoxColumn1.Name = "PlaceDataGridViewTextBoxColumn1"
         '
+        'LocationBindingSource
+        '
+        Me.LocationBindingSource.DataSource = GetType(NAirQMon.Location)
+        '
+        'IsActive
+        '
+        Me.IsActive.DataPropertyName = "IsActive"
+        Me.IsActive.HeaderText = "IsActive"
+        Me.IsActive.Name = "IsActive"
+        '
         'LocationManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -172,4 +179,5 @@ Partial Class LocationManager
     Friend WithEvents MunicipalityDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents ProvinceDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents PlaceDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IsActive As DataGridViewCheckBoxColumn
 End Class
