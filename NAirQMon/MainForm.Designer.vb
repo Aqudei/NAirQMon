@@ -50,7 +50,6 @@ Partial Class MainForm
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.AccountManager1 = New NAirQMon.AccountManager()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.LocationManagerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LocationManagerBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1.SuspendLayout()
@@ -355,16 +354,6 @@ Partial Class MainForm
         Me.Label20.TabIndex = 3
         Me.Label20.Text = "Account List"
         '
-        'MetroButton1
-        '
-        Me.MetroButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroButton1.Location = New System.Drawing.Point(674, 31)
-        Me.MetroButton1.Name = "MetroButton1"
-        Me.MetroButton1.Size = New System.Drawing.Size(75, 23)
-        Me.MetroButton1.TabIndex = 1
-        Me.MetroButton1.Text = "Log out"
-        Me.MetroButton1.UseSelectable = True
-        '
         'LocationManagerBindingSource
         '
         Me.LocationManagerBindingSource.DataSource = GetType(NAirQMon.LocationManager)
@@ -378,7 +367,6 @@ Partial Class MainForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 710)
-        Me.Controls.Add(Me.MetroButton1)
         Me.Controls.Add(Me.TabControl1)
         Me.MinimizeBox = False
         Me.Name = "MainForm"
@@ -421,5 +409,4 @@ Partial Class MainForm
     Friend WithEvents LocationManagerBindingSource As BindingSource
     Friend WithEvents LocationManagerBindingSource1 As BindingSource
     Friend WithEvents MetroGrid1 As MetroGrid
-    Friend WithEvents MetroButton1 As MetroButton
 End Class

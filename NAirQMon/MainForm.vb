@@ -127,4 +127,6 @@ Public Class MainForm
         ' Add any initialization after the InitializeComponent() call.
         fileReader = New SingleFlightFileReader
     End Sub
+
+
 End Class
