@@ -55,7 +55,7 @@ Public Class MonitoringPage
         End Using
     End Sub
 
-    Private Sub ReloadMetroButton_Click(sender As Object, e As EventArgs) Handles ReloadMetroButton.Click
+    Private Sub ReloadMetroButton_Click(sender As Object, e As EventArgs) 
         LoadMarkers()
     End Sub
 
