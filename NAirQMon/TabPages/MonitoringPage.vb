@@ -48,14 +48,14 @@ Public Class MonitoringPage
                 Dim lastCO2 = readingsDao.GetLatestCO2Value(_loc.Place, GetAltitudeValue)
 
                 With _loc
-                    marker.ToolTipText = String.Format("Brgy. {0}, {1}, {2}" & vbNewLine & "CO2 Level: {3}" & vbNewLine & "Altitude: {4} meter/s",
-                                                       .Barangay, .Municipality, .Province, lastCO2, GetAltitudeValue)
+                    marker.ToolTipText = String.Format("Brgy. {0}, {1}, {2}" & vbNewLine & "CO2 Level: {3}" & vbNewLine & "Last Reading Time: {4}" & vbNewLine & "Altitude: {5} meter/s",
+                                                       .Barangay, .Municipality, .Province, lastCO2?.CarbonMonoxideLevel, lastCO2?.TimeRead, GetAltitudeValue)
                 End With
             Next
         End Using
     End Sub
 
-    Private Sub ReloadMetroButton_Click(sender As Object, e As EventArgs) 
+    Private Sub ReloadMetroButton_Click(sender As Object, e As EventArgs)
         LoadMarkers()
     End Sub
 

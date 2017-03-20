@@ -1,16 +1,16 @@
 ﻿Public Class ReadingsDao
-    Function GetLatestCO2Value(place As String, altitude As Integer) As Single
+    Function GetLatestCO2Value(place As String, altitude As Integer) As SensorDataItem
         Try
             Using ctx As New AirQContext
                 Dim latest = ctx.SensorDataItems.Where(Function(r) r.Place = place And r.Altitude = altitude).OrderByDescending(Function(r) r.TimeRead).FirstOrDefault
                 If latest IsNot Nothing Then
-                    Return latest.CarbonMonoxideLevel
+                    Return latest
                 Else
-                    Return 0
+                    Return Nothing
                 End If
             End Using
         Catch ex As Exception
-            Return 0
+            Return Nothing
         End Try
     End Function
 
