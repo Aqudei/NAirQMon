@@ -3,7 +3,7 @@ Imports System.Data.Entity.Migrations
 Imports Microsoft.VisualBasic
 
 Namespace Migrations
-    Public Partial Class initial
+    Public Partial Class altitudeToInt
         Inherits DbMigration
     
         Public Overrides Sub Up()
@@ -11,14 +11,15 @@ Namespace Migrations
                 "dbo.LocationTable",
                 Function(c) New With
                     {
-                        .Place = c.String(nullable := False, maxLength := 32, fixedLength := true),
+                        .LocationId = c.Long(nullable := False, identity := True),
                         .Latitude = c.Double(),
                         .Longitude = c.Double(),
                         .Barangay = c.String(maxLength := 32),
                         .Municipality = c.String(maxLength := 32),
-                        .Province = c.String(maxLength := 32)
+                        .Province = c.String(maxLength := 32),
+                        .Place = c.String(maxLength := 32, fixedLength := true)
                     }) _
-                .PrimaryKey(Function(t) t.Place)
+                .PrimaryKey(Function(t) t.LocationId)
             
             CreateTable(
                 "dbo.AirQualityTable",
@@ -26,20 +27,18 @@ Namespace Migrations
                     {
                         .SensorDataItemId = c.Int(nullable := False, identity := True),
                         .TimeRead = c.DateTime(),
+                        .Place = c.String(maxLength := 32, fixedLength := true),
+                        .Altitude = c.Int(nullable := False),
                         .CarbonMonoxideLevel = c.Single(),
                         .WarningLevel = c.Single(),
                         .SerialNumber = c.String(maxLength := 10, fixedLength := true),
                         .SensorLifeExpiry = c.DateTime(storeType := "date"),
                         .OverrangeExposure = c.String(maxLength := 10, fixedLength := true),
-                        .Place = c.String(maxLength := 32, fixedLength := true),
-                        .LocationTable_Place = c.String(maxLength := 32, fixedLength := true),
-                        .Location_Place = c.String(maxLength := 32, fixedLength := true)
+                        .Location_LocationId = c.Long()
                     }) _
                 .PrimaryKey(Function(t) t.SensorDataItemId) _
-                .ForeignKey("dbo.LocationTable", Function(t) t.LocationTable_Place) _
-                .ForeignKey("dbo.LocationTable", Function(t) t.Location_Place) _
-                .Index(Function(t) t.LocationTable_Place) _
-                .Index(Function(t) t.Location_Place)
+                .ForeignKey("dbo.LocationTable", Function(t) t.Location_LocationId) _
+                .Index(Function(t) t.Location_LocationId)
             
             CreateTable(
                 "dbo.UserAccounts",
@@ -58,10 +57,8 @@ Namespace Migrations
         End Sub
         
         Public Overrides Sub Down()
-            DropForeignKey("dbo.AirQualityTable", "Location_Place", "dbo.LocationTable")
-            DropForeignKey("dbo.AirQualityTable", "LocationTable_Place", "dbo.LocationTable")
-            DropIndex("dbo.AirQualityTable", New String() { "Location_Place" })
-            DropIndex("dbo.AirQualityTable", New String() { "LocationTable_Place" })
+            DropForeignKey("dbo.AirQualityTable", "Location_LocationId", "dbo.LocationTable")
+            DropIndex("dbo.AirQualityTable", New String() { "Location_LocationId" })
             DropTable("dbo.UserAccounts")
             DropTable("dbo.AirQualityTable")
             DropTable("dbo.LocationTable")

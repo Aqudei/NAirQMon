@@ -25,14 +25,13 @@ Partial Class MonitoringPage
         Me.components = New System.ComponentModel.Container()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.MetroTextBox4 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox3 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox2 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
+        Me.AltitudeMetroLabel = New MetroFramework.Controls.MetroLabel()
         Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
         Me.ReloadMetroButton = New MetroFramework.Controls.MetroButton()
         Me.TheMap = New GMap.NET.WindowsForms.GMapControl()
         Me.MetroStyleExtender1 = New MetroFramework.Components.MetroStyleExtender(Me.components)
+        Me.AltitudeMetroTrackBar = New MetroFramework.Controls.MetroTrackBar()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -61,10 +60,9 @@ Partial Class MonitoringPage
         'GroupBox3
         '
         Me.MetroStyleExtender1.SetApplyMetroTheme(Me.GroupBox3, True)
-        Me.GroupBox3.Controls.Add(Me.MetroTextBox4)
-        Me.GroupBox3.Controls.Add(Me.MetroTextBox3)
-        Me.GroupBox3.Controls.Add(Me.MetroTextBox2)
-        Me.GroupBox3.Controls.Add(Me.MetroTextBox1)
+        Me.GroupBox3.Controls.Add(Me.MetroLabel1)
+        Me.GroupBox3.Controls.Add(Me.AltitudeMetroTrackBar)
+        Me.GroupBox3.Controls.Add(Me.AltitudeMetroLabel)
         Me.GroupBox3.Controls.Add(Me.MetroButton2)
         Me.GroupBox3.Controls.Add(Me.ReloadMetroButton)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
@@ -77,151 +75,24 @@ Partial Class MonitoringPage
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Search"
         '
-        'MetroTextBox4
+        'AltitudeMetroLabel
         '
-        Me.MetroTextBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.AltitudeMetroLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        '
-        '
-        '
-        Me.MetroTextBox4.CustomButton.Image = Nothing
-        Me.MetroTextBox4.CustomButton.Location = New System.Drawing.Point(173, 2)
-        Me.MetroTextBox4.CustomButton.Name = ""
-        Me.MetroTextBox4.CustomButton.Size = New System.Drawing.Size(35, 35)
-        Me.MetroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox4.CustomButton.TabIndex = 1
-        Me.MetroTextBox4.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox4.CustomButton.UseSelectable = True
-        Me.MetroTextBox4.CustomButton.Visible = False
-        Me.MetroTextBox4.FontSize = MetroFramework.MetroTextBoxSize.Tall
-        Me.MetroTextBox4.Lines = New String(-1) {}
-        Me.MetroTextBox4.Location = New System.Drawing.Point(21, 276)
-        Me.MetroTextBox4.MaxLength = 32767
-        Me.MetroTextBox4.Name = "MetroTextBox4"
-        Me.MetroTextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox4.PromptText = "[Province]"
-        Me.MetroTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox4.SelectedText = ""
-        Me.MetroTextBox4.SelectionLength = 0
-        Me.MetroTextBox4.SelectionStart = 0
-        Me.MetroTextBox4.ShortcutsEnabled = True
-        Me.MetroTextBox4.Size = New System.Drawing.Size(211, 40)
-        Me.MetroTextBox4.TabIndex = 26
-        Me.MetroTextBox4.UseSelectable = True
-        Me.MetroTextBox4.WaterMark = "[Province]"
-        Me.MetroTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox4.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
-        '
-        'MetroTextBox3
-        '
-        Me.MetroTextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        '
-        '
-        '
-        Me.MetroTextBox3.CustomButton.Image = Nothing
-        Me.MetroTextBox3.CustomButton.Location = New System.Drawing.Point(173, 2)
-        Me.MetroTextBox3.CustomButton.Name = ""
-        Me.MetroTextBox3.CustomButton.Size = New System.Drawing.Size(35, 35)
-        Me.MetroTextBox3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox3.CustomButton.TabIndex = 1
-        Me.MetroTextBox3.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox3.CustomButton.UseSelectable = True
-        Me.MetroTextBox3.CustomButton.Visible = False
-        Me.MetroTextBox3.FontSize = MetroFramework.MetroTextBoxSize.Tall
-        Me.MetroTextBox3.Lines = New String(-1) {}
-        Me.MetroTextBox3.Location = New System.Drawing.Point(21, 205)
-        Me.MetroTextBox3.MaxLength = 32767
-        Me.MetroTextBox3.Name = "MetroTextBox3"
-        Me.MetroTextBox3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox3.PromptText = "[Municipality]"
-        Me.MetroTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox3.SelectedText = ""
-        Me.MetroTextBox3.SelectionLength = 0
-        Me.MetroTextBox3.SelectionStart = 0
-        Me.MetroTextBox3.ShortcutsEnabled = True
-        Me.MetroTextBox3.Size = New System.Drawing.Size(211, 40)
-        Me.MetroTextBox3.TabIndex = 25
-        Me.MetroTextBox3.UseSelectable = True
-        Me.MetroTextBox3.WaterMark = "[Municipality]"
-        Me.MetroTextBox3.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox3.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
-        '
-        'MetroTextBox2
-        '
-        Me.MetroTextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        '
-        '
-        '
-        Me.MetroTextBox2.CustomButton.Image = Nothing
-        Me.MetroTextBox2.CustomButton.Location = New System.Drawing.Point(173, 2)
-        Me.MetroTextBox2.CustomButton.Name = ""
-        Me.MetroTextBox2.CustomButton.Size = New System.Drawing.Size(35, 35)
-        Me.MetroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox2.CustomButton.TabIndex = 1
-        Me.MetroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox2.CustomButton.UseSelectable = True
-        Me.MetroTextBox2.CustomButton.Visible = False
-        Me.MetroTextBox2.FontSize = MetroFramework.MetroTextBoxSize.Tall
-        Me.MetroTextBox2.Lines = New String(-1) {}
-        Me.MetroTextBox2.Location = New System.Drawing.Point(21, 134)
-        Me.MetroTextBox2.MaxLength = 32767
-        Me.MetroTextBox2.Name = "MetroTextBox2"
-        Me.MetroTextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox2.PromptText = "[Barangay]"
-        Me.MetroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox2.SelectedText = ""
-        Me.MetroTextBox2.SelectionLength = 0
-        Me.MetroTextBox2.SelectionStart = 0
-        Me.MetroTextBox2.ShortcutsEnabled = True
-        Me.MetroTextBox2.Size = New System.Drawing.Size(211, 40)
-        Me.MetroTextBox2.TabIndex = 24
-        Me.MetroTextBox2.UseSelectable = True
-        Me.MetroTextBox2.WaterMark = "[Barangay]"
-        Me.MetroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox2.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
-        '
-        'MetroTextBox1
-        '
-        Me.MetroTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        '
-        '
-        '
-        Me.MetroTextBox1.CustomButton.Image = Nothing
-        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(173, 2)
-        Me.MetroTextBox1.CustomButton.Name = ""
-        Me.MetroTextBox1.CustomButton.Size = New System.Drawing.Size(35, 35)
-        Me.MetroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox1.CustomButton.TabIndex = 1
-        Me.MetroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox1.CustomButton.UseSelectable = True
-        Me.MetroTextBox1.CustomButton.Visible = False
-        Me.MetroTextBox1.FontSize = MetroFramework.MetroTextBoxSize.Tall
-        Me.MetroTextBox1.Lines = New String(-1) {}
-        Me.MetroTextBox1.Location = New System.Drawing.Point(21, 63)
-        Me.MetroTextBox1.MaxLength = 32767
-        Me.MetroTextBox1.Name = "MetroTextBox1"
-        Me.MetroTextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox1.PromptText = "[Sensor Name]"
-        Me.MetroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox1.SelectedText = ""
-        Me.MetroTextBox1.SelectionLength = 0
-        Me.MetroTextBox1.SelectionStart = 0
-        Me.MetroTextBox1.ShortcutsEnabled = True
-        Me.MetroTextBox1.Size = New System.Drawing.Size(211, 40)
-        Me.MetroTextBox1.TabIndex = 23
-        Me.MetroTextBox1.UseSelectable = True
-        Me.MetroTextBox1.WaterMark = "[Sensor Name]"
-        Me.MetroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox1.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+        Me.AltitudeMetroLabel.AutoSize = True
+        Me.AltitudeMetroLabel.FontSize = MetroFramework.MetroLabelSize.Tall
+        Me.AltitudeMetroLabel.Location = New System.Drawing.Point(202, 85)
+        Me.AltitudeMetroLabel.Name = "AltitudeMetroLabel"
+        Me.AltitudeMetroLabel.Size = New System.Drawing.Size(30, 25)
+        Me.AltitudeMetroLabel.TabIndex = 28
+        Me.AltitudeMetroLabel.Text = "70"
+        Me.AltitudeMetroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MetroButton2
         '
-        Me.MetroButton2.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.MetroButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MetroButton2.FontSize = MetroFramework.MetroButtonSize.Tall
-        Me.MetroButton2.Location = New System.Drawing.Point(115, 332)
+        Me.MetroButton2.Location = New System.Drawing.Point(115, 143)
         Me.MetroButton2.Name = "MetroButton2"
         Me.MetroButton2.Size = New System.Drawing.Size(117, 40)
         Me.MetroButton2.Style = MetroFramework.MetroColorStyle.Lime
@@ -231,8 +102,8 @@ Partial Class MonitoringPage
         '
         'ReloadMetroButton
         '
-        Me.ReloadMetroButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.ReloadMetroButton.Location = New System.Drawing.Point(115, 378)
+        Me.ReloadMetroButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ReloadMetroButton.Location = New System.Drawing.Point(115, 189)
         Me.ReloadMetroButton.Name = "ReloadMetroButton"
         Me.ReloadMetroButton.Size = New System.Drawing.Size(117, 23)
         Me.ReloadMetroButton.TabIndex = 21
@@ -266,6 +137,35 @@ Partial Class MonitoringPage
         Me.TheMap.TabIndex = 0
         Me.TheMap.Zoom = 16.0R
         '
+        'AltitudeMetroTrackBar
+        '
+        Me.AltitudeMetroTrackBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AltitudeMetroTrackBar.BackColor = System.Drawing.Color.Transparent
+        Me.AltitudeMetroTrackBar.LargeChange = 10
+        Me.AltitudeMetroTrackBar.Location = New System.Drawing.Point(6, 37)
+        Me.AltitudeMetroTrackBar.Maximum = 7
+        Me.AltitudeMetroTrackBar.Minimum = 1
+        Me.AltitudeMetroTrackBar.Name = "AltitudeMetroTrackBar"
+        Me.AltitudeMetroTrackBar.Size = New System.Drawing.Size(246, 23)
+        Me.AltitudeMetroTrackBar.SmallChange = 10
+        Me.AltitudeMetroTrackBar.TabIndex = 29
+        Me.AltitudeMetroTrackBar.Text = "AltitudeMetroTrackBar"
+        Me.AltitudeMetroTrackBar.Value = 7
+        '
+        'MetroLabel1
+        '
+        Me.MetroLabel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MetroLabel1.AutoSize = True
+        Me.MetroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall
+        Me.MetroLabel1.Location = New System.Drawing.Point(21, 85)
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Size = New System.Drawing.Size(159, 25)
+        Me.MetroLabel1.TabIndex = 30
+        Me.MetroLabel1.Text = "ALTITUDE (meters) :"
+        Me.MetroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'MonitoringPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -278,6 +178,7 @@ Partial Class MonitoringPage
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -289,8 +190,8 @@ Partial Class MonitoringPage
     Friend WithEvents MetroStyleExtender1 As MetroFramework.Components.MetroStyleExtender
     Friend WithEvents MetroButton2 As MetroFramework.Controls.MetroButton
     Friend WithEvents ReloadMetroButton As MetroFramework.Controls.MetroButton
-    Friend WithEvents MetroTextBox4 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox3 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox2 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox1 As MetroFramework.Controls.MetroTextBox
+
+    Friend WithEvents AltitudeMetroLabel As MetroFramework.Controls.MetroLabel
+    Friend WithEvents AltitudeMetroTrackBar As MetroFramework.Controls.MetroTrackBar
+    Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
 End Class

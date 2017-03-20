@@ -16,12 +16,12 @@ Partial Public Class SensorDataItem
         TimeRead = DateTime.Now
     End Sub
 
-    Private _altitude As Double
-    Public Property Altitude() As Double
+    Private _altitude As Integer
+    Public Property Altitude() As Integer
         Get
             Return _altitude
         End Get
-        Set(ByVal value As Double)
+        Set(ByVal value As Integer)
             _altitude = value
         End Set
     End Property

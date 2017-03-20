@@ -4,29 +4,22 @@ Imports GMap.NET.WindowsForms
 Public Class MonitoringPage
 
     Dim locationMarkers As New GMap.NET.WindowsForms.GMapOverlay("locations")
+    Dim readingsDao As New ReadingsDao
+    Dim mapCentre As New PointLatLng(12.5008589, 124.629162)
 
     Sub New()
-
         ' This call is required by the designer.
         InitializeComponent()
-
-
         ' Add any initialization after the InitializeComponent() call.
         TheMap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance
         GMaps.Instance.Mode = AccessMode.ServerAndCache
-        TheMap.Position = New PointLatLng(12.5008589, 124.629162)
+        TheMap.Position = mapCentre
         TheMap.Overlays.Add(locationMarkers)
         AddHandler TheMap.OnMarkerClick, AddressOf MarkerClicked
-        AddHandler TheMap.OnMarkerEnter, AddressOf MarkerEnter
-        LoadMarker()
+
+        LoadMarkers()
     End Sub
 
-    Private Sub MarkerEnter(marker As GMapMarker)
-        Dim loc = DirectCast(marker.Tag, Location)
-        With loc
-            marker.ToolTipText = String.Format("Brgy. {0}, {1}, {2}", .Barangay, .Municipality, .Province)
-        End With
-    End Sub
 
     Private Sub MarkerClicked(item As GMapMarker, e As MouseEventArgs)
 
@@ -36,7 +29,9 @@ Public Class MonitoringPage
 
     End Sub
 
-    Private Sub LoadMarker()
+    Private Sub LoadMarkers()
+
+        locationMarkers.Clear()
 
         Dim locs As IEnumerable(Of Location)
         Using ctx As New AirQContext
@@ -47,11 +42,27 @@ Public Class MonitoringPage
             Dim marker = New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(_loc.Latitude, _loc.Longitude), WindowsForms.Markers.GMarkerGoogleType.red)
             locationMarkers.Markers.Add(marker)
             marker.Tag = _loc
+
+            Dim lastCO2 = readingsDao.GetLatestCO2Value(_loc.Place, GetAltitudeValue)
+
+            With _loc
+                marker.ToolTipText = String.Format("Brgy. {0}, {1}, {2}" & vbNewLine & "CO2 Level: {3}" & vbNewLine & "Altitude: {4} meters",
+                                                   .Barangay, .Municipality, .Province, lastCO2, GetAltitudeValue)
+            End With
         Next
     End Sub
 
     Private Sub ReloadMetroButton_Click(sender As Object, e As EventArgs) Handles ReloadMetroButton.Click
-        locationMarkers.Markers.Clear()
-        LoadMarker()
+        LoadMarkers()
     End Sub
+
+    Private Sub MetroTrackBar1_ValueChanged(sender As Object, e As EventArgs) Handles AltitudeMetroTrackBar.ValueChanged
+        AltitudeMetroLabel.Text = "" & GetAltitudeValue()
+        LoadMarkers()
+    End Sub
+
+    Private Function GetAltitudeValue() As Integer
+        Return AltitudeMetroTrackBar.Value * 10
+    End Function
+
 End Class

@@ -135,28 +135,17 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataAccessObjects\AccountDao.vb" />
+    <Compile Include="DataAccessObjects\ReadingsDao.vb" />
     <Compile Include="FileReader\DefaultFileReader.vb" />
     <Compile Include="FileReader\SingleFlightFileReader.vb" />
     <Compile Include="Globals.vb" />
     <Compile Include="MetroGrid.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Migrations\201703200507379_initial.Designer.vb">
-      <DependentUpon>201703200507379_initial.vb</DependentUpon>
+    <Compile Include="Migrations\201703200922222_altitudeToInt.Designer.vb">
+      <DependentUpon>201703200922222_altitudeToInt.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703200507379_initial.vb" />
-    <Compile Include="Migrations\201703200538314_nextmigration.Designer.vb">
-      <DependentUpon>201703200538314_nextmigration.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703200538314_nextmigration.vb" />
-    <Compile Include="Migrations\201703200631557_locationChangedId.Designer.vb">
-      <DependentUpon>201703200631557_locationChangedId.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703200631557_locationChangedId.vb" />
-    <Compile Include="Migrations\201703200720180_removeSOmeUnusecolumn.Designer.vb">
-      <DependentUpon>201703200720180_removeSOmeUnusecolumn.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703200720180_removeSOmeUnusecolumn.vb" />
+    <Compile Include="Migrations\201703200922222_altitudeToInt.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingFormBar.Designer.vb">
       <DependentUpon>ReportingFormBar.vb</DependentUpon>
@@ -236,17 +225,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703200507379_initial.resx">
-      <DependentUpon>201703200507379_initial.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703200538314_nextmigration.resx">
-      <DependentUpon>201703200538314_nextmigration.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703200631557_locationChangedId.resx">
-      <DependentUpon>201703200631557_locationChangedId.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703200720180_removeSOmeUnusecolumn.resx">
-      <DependentUpon>201703200720180_removeSOmeUnusecolumn.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703200922222_altitudeToInt.resx">
+      <DependentUpon>201703200922222_altitudeToInt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
