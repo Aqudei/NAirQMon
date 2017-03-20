@@ -55,6 +55,10 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CsvHelper, Version=3.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.3.0.0-beta7\lib\net451\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -131,18 +135,19 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataAccessObjects\AccountDao.vb" />
-    <Compile Include="MapFiller.vb" />
+    <Compile Include="FileReader\DefaultFileReader.vb" />
+    <Compile Include="FileReader\SingleFlightFileReader.vb" />
     <Compile Include="MetroGrid.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Migrations\201703090953225_Initial.Designer.vb">
-      <DependentUpon>201703090953225_Initial.vb</DependentUpon>
+    <Compile Include="Migrations\201703200507379_initial.Designer.vb">
+      <DependentUpon>201703200507379_initial.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703090953225_Initial.vb" />
-    <Compile Include="Migrations\201703150406115_error.Designer.vb">
-      <DependentUpon>201703150406115_error.vb</DependentUpon>
+    <Compile Include="Migrations\201703200507379_initial.vb" />
+    <Compile Include="Migrations\201703200538314_nextmigration.Designer.vb">
+      <DependentUpon>201703200538314_nextmigration.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703150406115_error.vb" />
+    <Compile Include="Migrations\201703200538314_nextmigration.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingFormBar.Designer.vb">
       <DependentUpon>ReportingFormBar.vb</DependentUpon>
@@ -150,7 +155,6 @@
     <Compile Include="ReportingFormBar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScriptCallable.vb" />
     <Compile Include="SensorDataItem.vb" />
     <Compile Include="ImportSensorDataForm.Designer.vb">
       <DependentUpon>ImportSensorDataForm.vb</DependentUpon>
@@ -187,7 +191,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SensorDataReader.vb" />
+    <Compile Include="FileReader\SensorDataReader.vb" />
     <Compile Include="TabPages\AccountManager.Designer.vb">
       <DependentUpon>AccountManager.vb</DependentUpon>
     </Compile>
@@ -223,11 +227,11 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703090953225_Initial.resx">
-      <DependentUpon>201703090953225_Initial.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703200507379_initial.resx">
+      <DependentUpon>201703200507379_initial.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703150406115_error.resx">
-      <DependentUpon>201703150406115_error.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703200538314_nextmigration.resx">
+      <DependentUpon>201703200538314_nextmigration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -267,9 +271,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="map_termplate.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\12.jpg" />
     <None Include="Resources\lockt.gif" />
     <None Include="Resources\lock1.png" />
@@ -279,6 +280,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

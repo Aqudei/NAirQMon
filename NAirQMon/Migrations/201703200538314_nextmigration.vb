@@ -3,15 +3,15 @@ Imports System.Data.Entity.Migrations
 Imports Microsoft.VisualBasic
 
 Namespace Migrations
-    Public Partial Class _error
+    Public Partial Class nextmigration
         Inherits DbMigration
     
         Public Overrides Sub Up()
-            DropColumn("dbo.UserAccounts", "PhotoPath")
+            AddColumn("dbo.AirQualityTable", "Altitude", Function(c) c.Double(nullable := False))
         End Sub
         
         Public Overrides Sub Down()
-            AddColumn("dbo.UserAccounts", "PhotoPath", Function(c) c.String())
+            DropColumn("dbo.AirQualityTable", "Altitude")
         End Sub
     End Class
 End Namespace

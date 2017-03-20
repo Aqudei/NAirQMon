@@ -3,6 +3,8 @@ Imports GMap.NET
 
 Public Class MainForm
 
+    Dim fileReader As SensorDataReader
+
     Property isGuest As Boolean = False
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -45,7 +47,7 @@ Public Class MainForm
 
                     'Open all selected Files
                     For Each filename In ofd.FileNames
-                        sensorDatas.AddRange(SensorDataReader.ReadFileReturnSensorDataList(filename))
+                        sensorDatas.AddRange(fileReader.ReadFileReturnReadings(filename))
                     Next
                     Dim uniqueReadings = sensorDatas.Distinct(New UniqueReadingsEQComparer).ToList()
                     Using importForm As New ImportSensorDataForm
@@ -118,5 +120,11 @@ Public Class MainForm
         Next
     End Sub
 
+    Sub New()
+        ' This call is required by the designer.
+        InitializeComponent()
 
+        ' Add any initialization after the InitializeComponent() call.
+        fileReader = New SingleFlightFileReader
+    End Sub
 End Class

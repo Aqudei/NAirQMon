@@ -7,11 +7,24 @@ Imports System.Data.Entity.Spatial
 <Table("AirQualityTable")>
 Partial Public Class SensorDataItem
 
+    Public Property TimeRead As Date?
+
+    <StringLength(32)>
+    Public Property Place As String
+
     Public Sub New()
         TimeRead = DateTime.Now
     End Sub
 
-    Public Property TimeRead As Date?
+    Private _altitude As Double
+    Public Property Altitude() As Double
+        Get
+            Return _altitude
+        End Get
+        Set(ByVal value As Double)
+            _altitude = value
+        End Set
+    End Property
 
     Public Property CarbonMonoxideLevel As Single?
 
@@ -26,8 +39,6 @@ Partial Public Class SensorDataItem
     <StringLength(10)>
     Public Property OverrangeExposure As String
 
-    <StringLength(32)>
-    Public Property Place As String
 
     <Key>
     Public Property SensorDataItemId As Integer
@@ -44,6 +55,4 @@ Partial Public Class SensorDataItem
     Public Overrides Function GetHashCode() As Integer
         Return MyBase.GetHashCode() Xor TimeRead.GetHashCode
     End Function
-
-
 End Class
