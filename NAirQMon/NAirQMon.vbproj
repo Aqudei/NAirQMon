@@ -137,6 +137,7 @@
     <Compile Include="DataAccessObjects\AccountDao.vb" />
     <Compile Include="FileReader\DefaultFileReader.vb" />
     <Compile Include="FileReader\SingleFlightFileReader.vb" />
+    <Compile Include="Globals.vb" />
     <Compile Include="MetroGrid.vb">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +149,10 @@
       <DependentUpon>201703200538314_nextmigration.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703200538314_nextmigration.vb" />
+    <Compile Include="Migrations\201703200631557_locationChangedId.Designer.vb">
+      <DependentUpon>201703200631557_locationChangedId.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703200631557_locationChangedId.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="ReportingFormBar.Designer.vb">
       <DependentUpon>ReportingFormBar.vb</DependentUpon>
@@ -232,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703200538314_nextmigration.resx">
       <DependentUpon>201703200538314_nextmigration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200631557_locationChangedId.resx">
+      <DependentUpon>201703200631557_locationChangedId.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

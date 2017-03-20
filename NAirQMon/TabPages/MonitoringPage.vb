@@ -17,32 +17,27 @@ Public Class MonitoringPage
         TheMap.Position = New PointLatLng(12.5008589, 124.629162)
         TheMap.Overlays.Add(locationMarkers)
         AddHandler TheMap.OnMarkerClick, AddressOf MarkerClicked
-
+        AddHandler TheMap.OnMarkerEnter, AddressOf MarkerEnter
         LoadMarker()
     End Sub
 
+    Private Sub MarkerEnter(marker As GMapMarker)
+        Dim loc = DirectCast(marker.Tag, Location)
+        With loc
+            marker.ToolTipText = String.Format("Brgy. {0}, {1}, {2}", .Barangay, .Municipality, .Province)
+        End With
+    End Sub
+
     Private Sub MarkerClicked(item As GMapMarker, e As MouseEventArgs)
-        Animate(item)
+
         Using Form As New ReportingFormBar
             Form.ShowDialog()
         End Using
 
     End Sub
 
-
-
-    Private Sub Animate(item As GMapMarker)
-        Dim orig = item.LocalPosition
-
-        For index = 1 To 1000
-            item.IsVisible = (index Mod 10 = 0)
-            Application.DoEvents()
-        Next
-
-        item.IsVisible = True
-    End Sub
-
     Private Sub LoadMarker()
+
         Dim locs As IEnumerable(Of Location)
         Using ctx As New AirQContext
             locs = ctx.Locations.ToList
@@ -51,8 +46,8 @@ Public Class MonitoringPage
         For Each _loc In locs
             Dim marker = New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(_loc.Latitude, _loc.Longitude), WindowsForms.Markers.GMarkerGoogleType.red)
             locationMarkers.Markers.Add(marker)
+            marker.Tag = _loc
         Next
-
     End Sub
 
     Private Sub ReloadMetroButton_Click(sender As Object, e As EventArgs) Handles ReloadMetroButton.Click

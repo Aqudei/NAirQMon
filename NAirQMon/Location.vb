@@ -21,7 +21,6 @@ Partial Public Class Location
     <StringLength(32)>
     Public Property Province As String
 
-    <Key>
     <StringLength(32)>
     Public Property Place As String
 
@@ -29,4 +28,6 @@ Partial Public Class Location
     <System.ComponentModel.Browsable(False)>
     Public Overridable Property SensorDataItems As ICollection(Of SensorDataItem)
 
+
+    Property LocationId As Long
 End Class

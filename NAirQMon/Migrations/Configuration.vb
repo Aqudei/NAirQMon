@@ -23,6 +23,8 @@ Namespace Migrations
             '       New Customer() With {.FullName = "Andrew Peters"},
             '       New Customer() With {.FullName = "Brice Lambson"},
             '       New Customer() With {.FullName = "Rowan Miller"})
+
+
         End Sub
 
     End Class

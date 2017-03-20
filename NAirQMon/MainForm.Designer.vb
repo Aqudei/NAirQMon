@@ -76,7 +76,7 @@ Partial Class MainForm
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(20, 60)
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 2
+        Me.TabControl1.SelectedIndex = 1
         Me.TabControl1.Size = New System.Drawing.Size(744, 630)
         Me.TabControl1.TabIndex = 0
         Me.TabControl1.UseSelectable = True

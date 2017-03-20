@@ -36,7 +36,6 @@ Partial Class LocationManager
         Me.MunicipalityDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProvinceDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PlaceDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IsActiveDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.FlowLayoutPanel2.SuspendLayout()
         CType(Me.LocationsMetroGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LocationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,7 +78,7 @@ Partial Class LocationManager
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.LocationsMetroGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.LocationsMetroGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LocationsMetroGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LatitudeDataGridViewTextBoxColumn1, Me.LongitudeDataGridViewTextBoxColumn1, Me.BarangayDataGridViewTextBoxColumn1, Me.MunicipalityDataGridViewTextBoxColumn1, Me.ProvinceDataGridViewTextBoxColumn1, Me.PlaceDataGridViewTextBoxColumn1, Me.IsActiveDataGridViewCheckBoxColumn})
+        Me.LocationsMetroGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LatitudeDataGridViewTextBoxColumn1, Me.LongitudeDataGridViewTextBoxColumn1, Me.BarangayDataGridViewTextBoxColumn1, Me.MunicipalityDataGridViewTextBoxColumn1, Me.ProvinceDataGridViewTextBoxColumn1, Me.PlaceDataGridViewTextBoxColumn1})
         Me.LocationsMetroGrid.DataSource = Me.LocationBindingSource
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -149,11 +148,6 @@ Partial Class LocationManager
         Me.PlaceDataGridViewTextBoxColumn1.HeaderText = "Place"
         Me.PlaceDataGridViewTextBoxColumn1.Name = "PlaceDataGridViewTextBoxColumn1"
         '
-        'IsActiveDataGridViewCheckBoxColumn
-        '
-        Me.IsActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive"
-        Me.IsActiveDataGridViewCheckBoxColumn.Name = "IsActiveDataGridViewCheckBoxColumn"
-        '
         'LocationManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -178,5 +172,4 @@ Partial Class LocationManager
     Friend WithEvents MunicipalityDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents ProvinceDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents PlaceDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents IsActiveDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
 End Class

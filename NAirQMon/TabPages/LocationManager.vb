@@ -4,8 +4,9 @@
     Sub SaveAll()
         Using ctx As New AirQContext
             For Each item In LocationBindingSource.List
+
                 Dim location = CType(item, Location)
-                If location.Place <= 0 Then
+                If location.LocationId <= 0 Then
                     ctx.Locations.Add(location)
                 Else
                     ctx.Locations.Attach(location)
