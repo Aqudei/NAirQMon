@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AccountManager
     Inherits MetroFramework.Controls.MetroUserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,13 @@ Partial Class AccountManager
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AccountsMetroGrid = New MetroFramework.Controls.MetroGrid()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.MetroLink1 = New MetroFramework.Controls.MetroLink()
-        Me.MetroLink2 = New MetroFramework.Controls.MetroLink()
         Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -37,9 +34,12 @@ Partial Class AccountManager
         Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IsActiveDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.UserAccountBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.MetroLink1 = New MetroFramework.Controls.MetroLink()
+        Me.MetroLink2 = New MetroFramework.Controls.MetroLink()
         CType(Me.AccountsMetroGrid, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.UserAccountBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'AccountsMetroGrid
@@ -70,7 +70,6 @@ Partial Class AccountManager
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.AccountsMetroGrid.DefaultCellStyle = DataGridViewCellStyle2
-        Me.AccountsMetroGrid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountsMetroGrid.EnableHeadersVisualStyles = False
         Me.AccountsMetroGrid.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.AccountsMetroGrid.GridColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -89,35 +88,6 @@ Partial Class AccountManager
         Me.AccountsMetroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.AccountsMetroGrid.Size = New System.Drawing.Size(424, 273)
         Me.AccountsMetroGrid.TabIndex = 0
-        '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.Controls.Add(Me.MetroLink1)
-        Me.FlowLayoutPanel1.Controls.Add(Me.MetroLink2)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 273)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(424, 59)
-        Me.FlowLayoutPanel1.TabIndex = 1
-        '
-        'MetroLink1
-        '
-        Me.MetroLink1.Location = New System.Drawing.Point(309, 3)
-        Me.MetroLink1.Name = "MetroLink1"
-        Me.MetroLink1.Size = New System.Drawing.Size(112, 23)
-        Me.MetroLink1.TabIndex = 0
-        Me.MetroLink1.Text = "Save Changes"
-        Me.MetroLink1.UseSelectable = True
-        '
-        'MetroLink2
-        '
-        Me.MetroLink2.Location = New System.Drawing.Point(228, 3)
-        Me.MetroLink2.Name = "MetroLink2"
-        Me.MetroLink2.Size = New System.Drawing.Size(75, 23)
-        Me.MetroLink2.TabIndex = 1
-        Me.MetroLink2.Text = "Delete"
-        Me.MetroLink2.UseSelectable = True
         '
         'UsernameDataGridViewTextBoxColumn
         '
@@ -159,6 +129,35 @@ Partial Class AccountManager
         '
         Me.UserAccountBindingSource.DataSource = GetType(NAirQMon.UserAccount)
         '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Controls.Add(Me.MetroLink1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.MetroLink2)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 273)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(424, 59)
+        Me.FlowLayoutPanel1.TabIndex = 1
+        '
+        'MetroLink1
+        '
+        Me.MetroLink1.Location = New System.Drawing.Point(309, 3)
+        Me.MetroLink1.Name = "MetroLink1"
+        Me.MetroLink1.Size = New System.Drawing.Size(112, 23)
+        Me.MetroLink1.TabIndex = 0
+        Me.MetroLink1.Text = "Save Changes"
+        Me.MetroLink1.UseSelectable = True
+        '
+        'MetroLink2
+        '
+        Me.MetroLink2.Location = New System.Drawing.Point(228, 3)
+        Me.MetroLink2.Name = "MetroLink2"
+        Me.MetroLink2.Size = New System.Drawing.Size(75, 23)
+        Me.MetroLink2.TabIndex = 1
+        Me.MetroLink2.Text = "Delete"
+        Me.MetroLink2.UseSelectable = True
+        '
         'AccountManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -168,13 +167,11 @@ Partial Class AccountManager
         Me.Name = "AccountManager"
         Me.Size = New System.Drawing.Size(424, 332)
         CType(Me.AccountsMetroGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.UserAccountBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents AccountsMetroGrid As MetroFramework.Controls.MetroGrid
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents UserAccountBindingSource As BindingSource
     Friend WithEvents MetroLink1 As MetroFramework.Controls.MetroLink
@@ -185,4 +182,5 @@ Partial Class AccountManager
     Friend WithEvents MiddleNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LastNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IsActiveDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
+    Public WithEvents AccountsMetroGrid As MetroFramework.Controls.MetroGrid
 End Class

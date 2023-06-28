@@ -26,7 +26,12 @@ Public Class ReportingForm
 
     Public rpt As MainReport
 
+
     Private Sub CrystalReportViewer1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CrystalReportViewer1.KeyPress
+
+    End Sub
+
+    Private Sub ReportingForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
